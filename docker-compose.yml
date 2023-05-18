@@ -6,6 +6,8 @@ services:
       dockerfile: .devcontainer/Dockerfile
     ports:
       - "8080:80"
+    volumes:
+    - .:/var/www/html
   db:
     image: mysql:5.7
     environment:
