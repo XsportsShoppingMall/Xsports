@@ -1,7 +1,7 @@
-# MySQL data files
-# db_data/mysql.sock binary
+# Exclude MySQL data files
+db_data/* -text
 
-# Exclude files from line ending conversion
-db_data/auto.cnf -text
-db_data/binlog.index -text
-db_data/ib_buffer_pool -text
+# Exclude specific files from line ending conversion
+!db_data/auto.cnf
+!db_data/binlog.index
+!db_data/ib_buffer_pool
