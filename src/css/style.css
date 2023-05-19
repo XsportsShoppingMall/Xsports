@@ -33,6 +33,15 @@
 }
 
 .signUpOrMypage, .loginOut{
-    padding: 8px;
+    margin: 8px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 48px;
+    vertical-align: middle;
+    width: 70px;
+}
+
+.signUpOrMypage:hover, .loginOut:hover{
+    text-decoration: underline
 }
 
