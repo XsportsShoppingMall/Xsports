@@ -1,7 +1,11 @@
-# Exclude MySQL data files
-db_data/* -text
+* text=auto
 
-# Exclude specific files from line ending conversion
-!db_data/auto.cnf
-!db_data/binlog.index
-!db_data/ib_buffer_pool
+# Specify files that should always use LF line endings, regardless of the operating system.
+*.sh text eol=lf
+
+# Specify files that should always use CRLF line endings, regardless of the operating system.
+*.bat text eol=crlf
+
+# Specify files that are binary and should not be modified.
+*.png binary
+*.jpg binary
