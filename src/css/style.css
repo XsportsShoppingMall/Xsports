@@ -577,10 +577,10 @@ body {
     .box1 > .box1-5 > .photo1 #circle{width:160px; height:160px; border-radius: 50%; background-color: #dec16b; display:inline-block;
                                     position:absolute; top:20px; left:195px; opacity:0.8;}
     .box1 > .box1-5 > .photo1 #circle p{font-family: 'Pretendard-Regular';  color:white; font-size:20px; display:inline-block;
-                                        position: absolute; left:35px; top:35px;}
+                                        position: absolute; left:35px; top:10px;}
     .box1 > .box1-5 > .photo1 #circle div{font-family: 'Pretendard-Regular';  color:white; font-size:65px; font-weight: bold; letter-spacing: -3px; position: absolute;
-                                        top:50px; left:35px;}
-    .box1 > .box1-5 > .photo1 #circle span{font-family: 'Pretendard-Regular';  color:white; position:absolute; top:65px; left:110px; font-size:30px;}
+                                        top:0px; left:35px;}
+    .box1 > .box1-5 > .photo1 #circle span{font-family: 'Pretendard-Regular';  color:white; position:absolute; top:80px; left:110px; font-size:30px;}
 
     .box1 > .box1-6{width:545px; height:200px; position: relative; bottom:1015px;}
     .box1 > .box1-6 > .photo2 img{width:540px; height:200px; position: absolute; top: 815px; left:570px;}
