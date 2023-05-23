@@ -1,50 +1,64 @@
-.logoBox{
-    display: flex;
-    justify-content:space-between;
-    
+body {
+    font-family: Arial, sans-serif;
 }
 
-
-.homeLogo{
-    color:#5D5953;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 50px;
-    padding:10px;
-    display: flex;
-}
-.homeLogoX{
-    color:red;
-    display: inline;
-}
-.homeLogoSports{
-    display: inline;
-}
-
-.loginBox{
-    font: 13px/27px Roboto,Arial,sans-serif;
-    font-weight: bold;
-    font-size: 15px;
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
     text-align: center;
+}
+
+nav {
+    background-color: #ddd;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.featured-products {
+    padding: 20px;
+}
+
+.product-grid {
     display: flex;
-    justify-content:space-between;
-    padding : 10px 
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.signUpOrMypage, .loginOut{
-    margin: 8px;
-    cursor: pointer;
-    display: inline-block;
-    line-height: 48px;
-    vertical-align: middle;
-    width: 70px;
+.product-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    flex-basis: 200px;
 }
 
-.signUpOrMypage:hover, .loginOut:hover{
-    text-decoration: underline
+.product-card img {
+    width: 100%;
 }
 
+<<<<<<< HEAD
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+=======
 * {
   box-sizing: border-box;
 }
@@ -909,3 +923,4 @@ font-style: normal;}
 
       .section5 > .text-box-4{width:200px; height:15px; position:relative; bottom:430px; left:985px;}
       .section5 > .text-box-4 p{float:left; font-family: 'Pretendard-Regular';  font-size:15px; color:white;} 
+>>>>>>> 3674f082ee75dca49b2dcb9b4a3639e0392b8501
