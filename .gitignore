@@ -4,4 +4,4 @@ node_modules/
 dist/
 db_data/mysql.sock
 db_data/ibtmp1
-db_data/#innodb_temp/temp_*.ibt
+db_data/#innodb_temp
