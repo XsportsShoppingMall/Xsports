@@ -5,3 +5,11 @@ dist/
 db_data/mysql.sock
 db_data/ibtmp1
 db_data/#innodb_temp
+
+db_data/#innodb_redo/#ib_redo10
+db_data/auto.cnf
+db_data/mysql.ibd
+db_data/#ib_16384_0.dblwr
+db_data/ibdata1
+db_data/undo_001
+db_data/undo_002
