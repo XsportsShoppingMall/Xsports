@@ -1,3 +1,54 @@
+.logoBox{
+  display: flex;
+  justify-content:space-between;
+  
+}
+
+
+.homeLogo{
+  color:#5D5953;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 50px;
+  padding:10px;
+  display: flex;
+}
+.homeLogoX{
+  color:red;
+  display: inline;
+}
+.homeLogoSports{
+  display: inline;
+}
+
+.loginBox{
+  font: 13px/27px Roboto,Arial,sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  justify-content:space-between;
+  padding : 10px 
+}
+
+.signUpOrMypage, .loginOut{
+  margin: 8px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 48px;
+  vertical-align: middle;
+  width: 70px;
+}
+
+.signUpOrMypage:hover, .loginOut:hover{
+  text-decoration: underline
+}
+
+
+
+
+
 body {
     font-family: Arial, sans-serif;
 }
