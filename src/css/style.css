@@ -1,965 +1,537 @@
-.logoBox{
-  display: flex;
-  justify-content:space-between;
+h1 {
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    color: #b07163;
+    text-align: center;
+    margin-top: 0px;
+  }
+
+
+
+  h2 {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #692517;
+    text-align: center;
+    margin-top: 0px;
+  }
   
+  
+
+ /* 기존 CSS 코드는 여기에 있습니다 */
+
+#user-actions {
+    margin-left: auto;
+  }
+  
+  #user-actions a {
+    margin-left: 10px;
+    color: #813535;
+    text-decoration: none;
+  }
+  
+
+
+                         
+                       
+                       
+
+  header{width:1580px; height:90px; margin:0 auto; background-color:white;}  
+  #logo{float:left; width:20px; height:30px; margin:10px 0px 30px 30px;} 
+  .nav1 > nav  {float:left; width:600px; height:30px; margin:35px 30px 0 100px;}
+  .nav1 > nav ul{font-family:"Lucida Console"; font-size:15pt;}
+  .nav1 > nav ul li{float:left; padding:0 20px;}
+  .nav1 > nav ul a{text-decoration:none; color:#2e2e2e;}
+  .nav1 > nav ul a:hover{color:lightgray;}
+
+  .nav2 > nav{float:right; width:270px; height:30px; margin:35px 30px 0px;}
+  .nav2 > nav ul li{float:left; margin-left:-20px;}
+  .nav2 > nav ul img{margin-right:35px;}
+  
+  #slider{width:100%; height:570px; margin:0 auto; background-color:#c3c0ad; position:relative; }
+  #slider > .text > h1{font-family: 'ghanachoco';  font-size: 75px; color:white; position:absolute; top: 195px; left:130px; cursor:context-menu;}
+  #slider > .text > h2{font-family: 'ghanachoco';  font-size: 20px; color:white; position: absolute; top:300px; left:145px; cursor:context-menu;}
+  
+  #slider .photo{width:60%; height:570px; float:right;}
+  .photo img{width:100%; height: 100%;}
+
+  .section1{width:1580px; height:950px; margin:0 auto; position:relative;}
+ 
+  .box1{width:1110px; height:870px; margin:0 auto;  margin-top:70px;}
+  .box1 > .box1-1{position: relative; width:345px; height:590px; background-size:100% 100%; background-repeat: no-repeat;}
+  .box1 > .box1-1 p {font-family: 'ghanachoco';  font-size:33px; text-transform: uppercase; color:white; position:absolute; top:35px; left:30px;}
+
+  .box1 > .box1-2{float:left; width:745px; height:265px; position:relative; left:380px; bottom:565px;} 
+  .box1 > .box1-2 > .product1{float:left; width:230px; height:210px; margin-right:17px; margin-bottom:5px;}
+  .box1 > .box1-2 > .product1 img{width:230px; height:210px; }
+  .box1 > .box1-2 > .product1 img:hover{transform: scale(1.1); transition: 0.3s;}
+  .box1 > .box1-2 > .product1 > a{font-family: 'Pretendard-Regular'; line-height: 13px; font-size:12px; }
+  
+  .box1 > .box1-2 > .product1 > a > p > s{text-decoration:line-through; color:#717171; font-weight: bold;}
+
+  .box1 > .box1-3{float:right; width:745px; height:265px; position:relative; bottom:535px; left:15px;}
+  .box1 > .box1-3 > .product2{float:left; width:230px; height:210px; margin-right:17px;}
+   .box1 > .box1-3 > .product2 img{width:230px; height:210px;}
+   .box1 > .box1-3 > .product2 img:hover{transform: scale(1.1); transition: 0.3s;}
+   .box1 > .box1-3 > .product2 a{font-family: 'Pretendard-Regular'; line-height: 15px; font-size:12px;}
+   .box1 > .box1-3 > .product2 > a > p > s{text-decoration: line-through; color:#717171; font-weight: bold;}
+
+   .box1 > .box1-4{float:left;  width:300px; height:10px; position: relative; left:845px; bottom:860px;}
+   .box1 > .box1-4 > ul{font-family: 'Pretendard-Regular';  font-size: 12px; letter-spacing: -1px;}
+   .box1 > .box1-4 > ul > li {float:left; }
+   .box1 > .box1-4 > ul > li a:hover{text-decoration: underline;}
+   .box1 > .box1-4 > ul > li > a {float:left; margin:0px 25px 0px 0px;}
+   
+
+   .box1 > .box1-5{width:545px; height:200px; margin-top:80px; position:relative;} 
+   .box1 > .box1-5 > .photo1 img{width:545px; height:200px; position: absolute; right:0px;}
+   .box1 > .box1-5 > .photo1 #circle{width:160px; height:160px; border-radius: 50%; background-color: #dec16b; display:inline-block;
+                                   position:absolute; top:20px; left:195px; opacity:0.8;}
+   .box1 > .box1-5 > .photo1 #circle p{font-family: 'Pretendard-Regular';  color:white; font-size:20px; display:inline-block;
+                                       position: absolute; left:35px; top:35px;}
+   .box1 > .box1-5 > .photo1 #circle div{font-family: 'Pretendard-Regular';  color:white; font-size:65px; font-weight: bold; letter-spacing: -3px; position: absolute;
+                                       top:50px; left:35px;}
+   .box1 > .box1-5 > .photo1 #circle span{font-family: 'Pretendard-Regular';  color:white; position:absolute; top:65px; left:110px; font-size:30px;}
+
+   .box1 > .box1-6{width:545px; height:200px; position: relative; bottom:1015px;}
+   .box1 > .box1-6 > .photo2 img{width:540px; height:200px; position: absolute; top: 815px; left:570px;}
+   .box1 > .box1-6 > .photo2 p{font-family: 'Pretendard-Regular'; font-weight: bold; font-size: 80px; color:white; position:absolute; top:865px; left:720px;}
+   .box1 > .box1-6 > .photo2 #square{width:90px; height:30px; background-color:black; position:absolute; top:895px; left:800px; }
+   .box1 > .box1-6 > .photo2 #square div{font-family: 'Pretendard-Regular';  position:absolute; color:white; font-size:13px; left:5px; top:7px;}
+
+  .section2{width:100%; height:880px; margin:0 auto; background-color:#f4f4f4;}
+  .box2{width:1115px; height:760px; margin:0 auto; background-color: #f4f4f4;}
+
+   .box2-1{width:345px; height:590px; position: relative; left:770px; top:90px; background-size: cover;}   
+   .box2-1 p{font-family: 'ghanachoco'; font-size:33px; color:white; position:absolute;  top:35px; left:230px; text-transform: uppercase;}
+
+   .box2 > .box2-2{float:left; width:745px; height:265px; position:relative; bottom:475px;}
+   .box2 > .box2-2 > .product3{float:left; width:230px; height:210px; margin-right:17px; }
+   .box2 > .box2-2 > .product3 img{width:230px; height:210px;}
+   .box2 > .box2-2 > .product3 img:hover{transform: scale(1.1); transition: 0.3s;}
+   .box2 > .box2-2 > .product3 a{font-family: 'Pretendard-Regular';  font-size:12px; line-height:13px;}
+   .box2 > .box2-2 > .product3 > a > p > s{text-decoration: line-through; color:#717171; font-weight: bold;}
+
+   .box2 > .box2-3{float:left; width:745px; height:265px; position: relative; bottom:440px; }
+   .box2 > .box2-3 > .product4{float:left; width:230px; height:210px; margin-right:17px;}
+   .box2 > .box2-3 > .product4 img{width:230px; height:210px;}
+   .box2 > .box2-3 > .product4 img:hover{transform: scale(1.1); transition: 0.3s;}
+   .box2 > .box2-3 > .product4 > a{font-family: 'Pretendard-Regular';  font-size:12px; line-height:13px;}
+   .box2 > .box2-3 > .product4 > a > p > s{text-decoration: line-through; color: #717171; font-weight: bold;}
+   .box2 > .box2-3 > .product4 a > p > span{color:#717171; font-weight: bold;}
+
+   .box2 > .box2-4{float:left; width:300px; height:10px; position: relative; bottom:770px; right:745px;}
+   .box2 > .box2-4 > ul{font-family: 'Pretendard-Regular';  font-size: 12px; letter-spacing: -1px;} 
+   .box2 > .box2-4 > ul > li{float:left;}
+   .box2 > .box2-4 > ul > li > a {float:left; margin:0px 25px 0px 0px;}
+   .box2 > .box2-4 > ul > li a:hover{text-decoration: underline;}
+   
+   
+   .box3{width:1425px; height:240px;  outline:5px solid #3d362c; outline-offset: -20px; margin:0 auto; background-color:#322b23; position:relative; left:5px; z-index: 1;}
+   .box3 > h1{font-family: 'ghanachoco';  color:white; padding:50px; position: absolute; margin:0 auto; left:480px;}
+   .box3 > .box3-1{width:160px; height:85px; outline:2px solid #9f9c98; outline-offset: -15px; position: absolute; left:625px; bottom:30px;}
+   .box3 > .box3-1 > a {font-family: 'Pretendard-Regular'; color: #797673; font-size: 10px; position:absolute; top:30px; left:40px;}
+
+   .section3{width:100%; height:340px; margin:0 auto; background-color: white;}
+   .box4    {width:1110px; height:315px; margin:0 auto; position: relative; top:180px;}
+   .box4 > .box4-1{ width:1110px; height:240px; margin:0 auto; position:absolute;}
+   .box4 > .box4-1 > .coments1-1 img{float:left; width:355px; height:240px; position: absolute; }
+   .box4 > .box4-1 > .coments1-1 span{position: absolute; left:105px; top:55px; z-index:3; text-transform: uppercase; font-family: Adobe Gothic Std; color:white; font-size:45px; 
+       color:rgba(0,0,0,0); -webkit-text-stroke: 1px white;}
+
+   .box4 > .box4-1 > .coments1-2 #rectangle{ background-color: #968d81; float:left; width:355px; height:240px; position: absolute; left:380px; }
+   .box4 > .box4-1 > .coments1-2 #rectangle p{color:white; font-family: 'Pretendard-Regular';  font-size:20px; position:absolute; top:20px; left:30px;}
+   .box4 > .box4-1 > .coments1-2 #rectangle div{color:white; font-family: 'Pretendard-Regular';  font-size:45px; position:absolute; top:45px; left:30px;}
+   .box4 > .box4-1 > .coments1-2 #rectangle span{color:white; font-family: 'Pretendard-Regular';  font-size:20px; position:absolute; top:105px; left:30px;}
+
+   .box4 > .box4-1 > .coments1-3 img{float:left; width:355px; height:240px; position: absolute; left:755px; bottom: 1px;}
+   .box4 > .box4-1 > .coments1-3 span{position:absolute; z-index:3; right:130px; top:50px; font-family: Adobe Gothic Std; font-size:45px; 
+                                      color:rgba(0,0,0,0); -webkit-text-stroke: 1px white; }
+
+   .box4 > .box4-2{float:right; width:1060px; height:150px; position: relative; bottom:75px;}
+   .box4 > .box4-2 > .coments2 #rectangle1{float:right; width:305px; height:155px; background-color:white; box-shadow: 5px 5px 5px #dbdbdb;}
+   .box4 > .box4-2 > .coments2 #rectangle1 p{font-family: 'Pretendard-Regular'; font-size:20px; padding-top:10px;}
+   .box4 > .box4-2 > .coments2 #rectangle1 > .solid1{width:15px; height:2px; background-color:#888888; position:relative; left:5px; bottom:15px; }
+   .box4 > .box4-2 > .coments2 #rectangle1 > .solid2{width:150px; height:2px; background-color:#888888; position:relative; left:140px; bottom:17px;}
+
+   .box4 > .box4-2 > .coments2 #rectangle2{float:right; width:305px; height:155px; background-color: white; position: absolute; right:375px; box-shadow: 5px 5px 5px #dbdbdb;}
+   .box4 > .box4-2 > .coments2 #rectangle2 p{font-family: 'Pretendard-Regular';  font-size:20px; padding-top:10px;}
+   .box4 > .box4-2 > .coments2 #rectangle2 span{font-family: 'Pretendard-Regular'; font-size:15px; padding:10px;}
+   .box4 > .box4-2 > .coments2 #rectangle2 > .solid1{width:15px; height:2px; background-color:#888888; position:relative; left:5px; bottom:35px;}
+   .box4 > .box4-2 > .coments2 #rectangle2 > .solid2{width:150px; height:2px; background-color:#888888; position:relative; left:140px; bottom:37px;}
+
+   .box4 > .box4-2 > .coments2 #rectangle3{float:right; width:305px; height:155px; background-color: white; position:absolute; box-shadow: 5px 5px 5px #dbdbdb;}
+   .box4 > .box4-2 > .coments2 #rectangle3 p{font-family: 'Pretendard-Regular';  font-size:20px; padding-top:10px;}
+   .box4 > .box4-2 > .coments2 #rectangle3 > .solid1{width:15px; height:2px; background-color:#888888; position:relative; left:5px; bottom:13px;}
+   .box4 > .box4-2 > .coments2 #rectangle3 > .solid2{width:180px; height:2px; background-color:#888888; position:relative; left:110px; bottom:15px;}
+
+   .section4{width:100%; height:330px; margin:0 auto; background-color:#f4f4f4;}
+
+   footer   {width:100%; height:245px; background-color: #2a2a2a; position:absolute; margin:0 auto;}
+   .section5-1{width:100%; height:55px; background-color: #1c1c1c; position:relative; margin:0 auto; top:245px;}
+   .section5{width:1165px; height:190px; position:relative; margin:0 auto;}
+   
+   .section5 > .text-box-1 { width:175px; height:100px;}
+   .section5 > .text-box-1 p{font-family: 'Pretendard-Regular';  font-size:15px; color:white;}
+   .section5 > .text-box-1 div{font-family: 'Pretendard-Regular'; font-size:20px; color:white;}
+
+   .section5 > .text-box-2{width:245px; height:155px; position:relative; left:255px; bottom:100px;}
+   .section5 > .text-box-2 p{font-family: 'Pretendard-Regular';  font-size:15px; color:white; }
+   .section5 > .text-box-2 div{font-family: 'Pretendard-Regular';  font-size:13px; color:white; position:relative; top:40px;} 
+   
+   .section5 > .text-box-3 {width:230px; height:175px; position:relative; left:635px; bottom:255px;}
+   .section5 > .text-box-3 p{font-family: 'Pretendard-Regular';  font-size: 15px; color:white; position:absolute; left:35px; top:0px;}
+
+   .section5 > .text-box-3 > .insta-imgbox1 img{float:left; width:70px; height:65px; position:relative; top:5px;  margin-right:5px;}
+   
+   .section5 > .text-box-3 > .insta-imgbox2 img{float:left; width:70px; height:65px; position:relative; top:10px; margin-right:5px;}
+
+   .section5 > .text-box-4{width:200px; height:15px; position:relative; bottom:430px; left:985px;}
+   .section5 > .text-box-4 p{float:left; font-family: 'Pretendard-Regular';  font-size:15px; color:white;}
+
+
+
+
+
+
+
+
+
+   html {
+    height: 100%;
 }
-
-
-.homeLogo{
-  color:#5D5953;
-  cursor: pointer;
-  font-weight: bold;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 50px;
-  padding:10px;
-  display: flex;
-}
-.homeLogoX{
-  color:red;
-  display: inline;
-}
-.homeLogoSports{
-  display: inline;
-}
-
-.loginBox{
-  font: 13px/27px Roboto,Arial,sans-serif;
-  font-weight: bold;
-  font-size: 15px;
-  text-align: center;
-  display: flex;
-  justify-content:space-between;
-  padding : 10px 
-}
-
-.signUpOrMypage, .loginOut{
-  margin: 8px;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 48px;
-  vertical-align: middle;
-  width: 70px;
-}
-
-.signUpOrMypage:hover, .loginOut:hover{
-  text-decoration: underline
-}
-
-
-
-
 
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100%;
+    background: #fff;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+}
+#logo {
+    width: 200px;
+    height:200px;
+    cursor: pointer;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
+#header {
+    padding-top: 60px;
+    padding-bottom: 20px;
     text-align: center;
 }
-
-nav {
-    background-color: #ddd;
+#wrapper {
+    position: relative;
+    height: 100%;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 460px;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 10px;
+
+
+
+/* 입력폼 */
+
+
+h3 {
+    margin: 19px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: black;
+
+.box {
+    display: block;
+    width: 50%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
 }
 
-.featured-products {
-    padding: 20px;
+.int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
 }
 
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+input {
+    font-family: Dotum,'돋움',Helvetica,sans-serif;    
 }
 
-.product-card {
-    border: 1px solid #ccc;
-    padding: 10px;
-    flex-basis: 200px;
+.box.int_id {
+    padding-right: 20px;
 }
 
-.product-card img {
+.box.int_pass {
+    padding-right: 40px;
+}
+
+.box.int_pass_check {
+    padding-right: 40px;
+}
+
+
+
+.pswdImg {
+    width: 18px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+#bir_wrap {
+    display: table;
     width: 100%;
 }
 
-* {
-  box-sizing: border-box;
+#bir_yy {
+    display: table-cell;
+    width: 147px;
+    
 }
 
-body {
-  margin: 0;
-  min-width: 992px;
-  font-family: "Helvetica";
-}
-
-/* navbar */
-.navbar{
-  height: 60px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-.navbar #logo {
-  line-height: 60px;
-}
-.navbar #logo img{
-  vertical-align: middle;
-}
-
-.navbar #menu {
-  float: right;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  
-}
-.navbar #menu li {
-  float:left;
-  margin-left: 50px;
-  line-height: 60px;
-}
-
-.navbar #menu li a {
-  text-decoration: none;
-  color: #545454 ;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-/* hero header */
-.hero-header{
-  height: 450px;
-  background-image: url("../images/hero_header.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  
-}
-/* products */
-
-.products h3{
-  font-size: 24px;
-  color: #545454;
-  font-weight: bold;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  text-align: center;
-}
-.product-list{
-  width: 735px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.product{
-  width: 225px;
-  text-align: center;
-  display: block;
-  color: #545454;
-  text-decoration: none;
-  float: left;
-  margin-left:10px;
-  margin-right: 10px;
-  margin-bottom: 80px;
-  
-}
-
-.product-name{
-  margin-top: 20px;
-  margin-bottom: 4px;
-  
-}
-.clearfix{
-  clear: both;
-}
-/* footer */
-.footer{
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 80px;
-
-}
-.footer a{
-  margin-left: 10px;
-  margin-right: 10px;
-  text-decoration: none;
-}
-
-
-
-
-
-/*
-
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    min-width: 992px;
-    font-family: "Helvetica";
-  }
-  
-  /* navbar 
-  .navbar{
-    height: 60px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  .navbar #logo {
-    line-height: 60px;
-  }
-  .navbar #logo img{
+#bir_mm {
+    display: table-cell;
+    width: 147px;
     vertical-align: middle;
-  }
-  
-  .navbar #menu {
-    float: right;
-    list-style: none;
-    padding: 0;
+}
+
+#bir_dd {
+    display: table-cell;
+    width: 147px;
+}
+
+#bir_mm, #bir_dd {
+    padding-left: 10px;
+}
+
+select {
+    width: 100%;
+    height: 29px;
+    font-size: 15px;
+    background: #fff url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50% no-repeat;
+    background-size: 20px 8px;
+   
+    display: inline-block;
+    text-align: start;
+    border: none;
+    cursor: default;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+}
+
+/* 에러메세지 */
+
+.error_next_box {
+    margin-top: 9px;
+    font-size: 12px;
+    color: red;    
+    display: none;
+}
+
+#alertTxt {
+    position: absolute;
+    top: 19px;
+    right: 38px;
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+
+/* 버튼 */
+
+.btn_area {
+    margin: 30px 0 91px;
+}
+
+#btnJoin {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border-radius: 40px;
+    background: linear-gradient(to left, rgb(188, 132, 12), #e8900c);
+    color: white;
+    font-family: "Recipekorea";
+    font-size: 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+* { 
     margin: 0;
-    
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
   }
-  .navbar #menu li {
-    float:left;
-    margin-left: 50px;
-    line-height: 60px;
-  }
-  
-  .navbar #menu li a {
+
+  a {
     text-decoration: none;
-    color: #545454 ;
-    font-size: 13px;
-    font-weight: bold;
+    color: rgb(0, 0, 0);
   }
   
-  /* hero header 
-  .hero-header{
-    height: 450px;
-    background-image: url("../images/hero_header.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    
-  }
-  /* products 
-  
-  .products h3{
-    font-size: 24px;
-    color: #545454;
-    font-weight: bold;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    text-align: center;
-  }
-  .product-list{
-    width: 735px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .product{
-    width: 225px;
-    text-align: center;
-    display: block;
-    color: #545454;
-    text-decoration: none;
-    float: left;
-    margin-left:10px;
-    margin-right: 10px;
-    margin-bottom: 80px;
-    
-  }
-  
-  .product-name{
-    margin-top: 20px;
-    margin-bottom: 4px;
-    
-  }
-  .clearfix{
-    clear: both;
-  }
-  /* footer 
-  .footer{
-    text-align: center;
-    margin-top: 40px;
-    margin-bottom: 80px;
-  
-  }
-  .footer a{
-    margin-left: 10px;
-    margin-right: 10px;
-    text-decoration: none;
-  }
-
-
-  */
-
-  
-
-
-
-/*
-
-  ol, ul{
+  li {
     list-style: none;
   }
- 
-  ul{
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-  }
- 
-  li{
-    text-align: -webkit-match-parent;
-  }
- 
- 
-  body{
+  
+  #header {
     padding-top: 60px;
-  }
- 
-  #nav{
-    margin:0;
-    padding: 0;
-     position: fixed;
-     top: 0;
-     left: 0;
-     min-width: 700px;
-     height: 60px;
-     width: 100%;
-     display: flex;
-     background: rgba(112, 109, 109, 0.333);
-     background-color: #000000;
-     align-items: center;
-     z-index: 100;
-   }
- 
-   #section{
-     z-index: 90;
-     margin-top: 60px;
-     width: 1000px;
-     text-align: left;
-     float: left;
-     padding: 10px;
-   }
- 
-   #aside{
-     z-index: 90;
-     margin-top: 60px;
-     width: 200px;
-     float: left;
- 
-   }
- 
-   .page{
-     /* text-align: center; 
-     /* -webkit-font-smoothing : antialiased; 
-     margin: 0 auto;
-     min-width: 1400px;
-     min-height: 100%;
-     height: 100%;
-     width: 1400px;
-     padding: 0 20px;
-   }
-   
-   .side_menu_box{
-     margin-top: 20px;
-     margin-bottom: 20px;
-   }
- 
-   .side_menu{
-     margin: 0 15px;
-     margin-top: 8px;
-   }
- 
-   .side_item{
- 
-   }
-   .side_category{
-     position: relative;
-     border-top: 1px solid #ddd;
-   }
-   .side_menu a{
-     display: block;
-     line-height: 20px;
-     padding: 10px 0 8px;
-   }
- 
-   strong.title{
-     display: inline-block;
-     font-size: 16px;
-     font-family: "SeoulHangang CM", "08SeoulHangang", sans-serif;
-     color: #151515;
-     font-weight: bold;
-     margin-top: 1px;
-   }
- 
-   .title_eg{
-     display: inline-block;
-     padding-left: 5px;    
-     font-size: 11px;
-     font-family: "굴림", Gulim, sans-serif;
-     color: #b2b2b2;
-     text-align: left;
-   }
- 
-   .nav_right_item{
-     position: relative;
-     right: 150px;
-     display: flex;
-     margin-left: auto;
-   }
-   
-   .nav_item{
-     margin-left: 10px;
-     margin-right: 10px;
-     text-decoration: none;
-     display: block;
-     color: white;
-     font-size: 13px;
-     font-weight: 600;
-     display: inline-block;
-     text-align: center;
-     font-size: 14px;
-     font-family: "맑은 고딕", "나눔 고딕", Gothic;
-   }
- 
-   .nav_logo{
-     position:relative;
-     margin: 0;
-     padding-left: 250px;
- 
-    
-   }
-   .nav_title{
-     margin-left: 10px;
-     position: relative;
-   }
-   #title{
-     font-family: "TmonMonsori", sans-serif;
-     font-size: 30px;
-     color: white;
-     text-align: center;
-     text-decoration: none;
-   }
- 
- 
-   .home_title_box{
-     margin-top: 70px;
-     margin-bottom: 40px;
-   }
- 
-   .home_title{
-   font-size: 20px;
-   font-weight: bold;
-   
-   }
- 
-   .product{
-     justify-content: space-between;
-     flex-wrap: wrap;
-     display: flex;
-   }
-   
- 
-   .product_card{
-     text-align: left;
-     background-color: #fff;
-     font-size: 16px;
-     margin-bottom: 80px;
-     width: 180px;
-     border-radius: 4px 4px 0 0 ;
-   }
- 
-   .product_card_tx{
-     padding: 0;
-   }
- 
-   .product_thumbnail{
-     position: relative;
-     width: 180px;
-   }
- 
-   .product_thumbnail_picture{
-     display: block;
-     overflow: hidden;
-     height: 200px;
-     width: 180px;
-     object-fit: cover;
-   }
- 
-   .product_name{
-     color: #495057;
-     margin-top: 10px;
-     font-size: 13px;
-     line-height: 20px;
-     height: 20px;
-     font-weight: 400;
-   }
-   .product_price_box{
-     display: flex;
-     justify-content: space-between;
-   }
-   .product_price{
-     color: #495057;
-     font-weight: 700;
-     margin-top: 10px;
-     font-size: 13px;
-     width: 75px;
-     height: 20px;
-     line-height: 20px;
-   }
-   .product_review{
-     display: flex;
-     margin-top: 10px;
-     vertical-align: middle;
-   }
-   .product_review_star{
-     color: #f2616b;
-     font-size: 12px;
-     box-sizing: border-box;
-     padding-top: 1px;
-     margin-right: 3px;
-   }
-   .product_review_satisfact{
-     color: #f2616b;
-     font-size: 14px;
-     font-weight: 700;
-     letter-spacing: -.5px;
-     margin-right: 5px;
-   }
-   .product_review_count{
-     color: #868e96;
-     font-size: 14px;
-     opacity: .8;
-   }
-   .photo_content{
-     width: 180px;
-     height: 200px;
-     -webkit-animation: LazyPhotoImage_fadein__r5aXG 1s;
-   }
- 
- 
- 
-   .link{
-     display: block;
-     text-decoration: none;
-     color: #343a40;
-   }
- 
-   */
+    padding-bottom: 20px;
+    text-align: center;
+}
 
+#wrapper{
+    position: relative;
+    height: 100%;
+}
 
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 460px;
+}
 
-
-
-
-
-                          
-                       
-                       
-
-   header{width:1580px; height:90px; margin:0 auto; background-color:white;}
-   #logo{float:left; width:20px; height:30px; margin:10px 0px 30px 30px;} 
-   .nav1 > nav  {float:left; width:600px; height:30px; margin:35px 30px 0 100px;}
-   .nav1 > nav ul{font-family:"Lucida Console"; font-size:15pt;}
-   .nav1 > nav ul li{float:left; padding:0 20px;}
-   .nav1 > nav ul a{text-decoration:none; color:#2e2e2e;}
-   .nav1 > nav ul a:hover{color:lightgray;}
-
-   .nav2 > nav{float:right; width:270px; height:30px; margin:35px 30px 0px;}
-   .nav2 > nav ul li{float:left; margin-left:-20px;}
-   .nav2 > nav ul img{margin-right:35px;} 
-   
-   #slider{width:100%; height:570px; margin:0 auto; background-color:#c3c0ad; position:relative; }
-   #slider > .text > h1{font-family: 'ghanachoco';  font-size: 75px; color:white; position:absolute; top: 195px; left:130px; cursor:context-menu;}
-   #slider > .text > h2{font-family: 'ghanachoco';  font-size: 20px; color:white; position: absolute; top:300px; left:145px; cursor:context-menu;}
-   
-   #slider .photo{width:60%; height:570px; float:right;}
-   .photo img{width:100%; height: 100%;}
-
-   .section1{width:1580px; height:950px; margin:0 auto; position:relative;}
-  
-   .box1{width:1110px; height:870px; margin:0 auto;  margin-top:70px;}
-   .box1 > .box1-1{position: relative; width:345px; height:590px; background-size:100% 100%; background-repeat: no-repeat;}
-   .box1 > .box1-1 p {font-family: 'ghanachoco';  font-size:33px; text-transform: uppercase; color:white; position:absolute; top:35px; left:30px;}
-
-   .box1 > .box1-2{float:left; width:745px; height:265px; position:relative; left:380px; bottom:565px;} 
-   .box1 > .box1-2 > .product1{float:left; width:230px; height:210px; margin-right:17px; margin-bottom:5px;}
-   .box1 > .box1-2 > .product1 img{width:230px; height:210px; }
-   .box1 > .box1-2 > .product1 img:hover{transform: scale(1.1); transition: 0.3s;}
-   .box1 > .box1-2 > .product1 > a{font-family: 'Pretendard-Regular'; line-height: 13px; font-size:12px; }
-   
-   .box1 > .box1-2 > .product1 > a > p > s{text-decoration:line-through; color:#717171; font-weight: bold;}
-
-   .box1 > .box1-3{float:right; width:745px; height:265px; position:relative; bottom:535px; left:15px;}
-   .box1 > .box1-3 > .product2{float:left; width:230px; height:210px; margin-right:17px;}
-    .box1 > .box1-3 > .product2 img{width:230px; height:210px;}
-    .box1 > .box1-3 > .product2 img:hover{transform: scale(1.1); transition: 0.3s;}
-    .box1 > .box1-3 > .product2 a{font-family: 'Pretendard-Regular'; line-height: 15px; font-size:12px;}
-    .box1 > .box1-3 > .product2 > a > p > s{text-decoration: line-through; color:#717171; font-weight: bold;}
-
-    .box1 > .box1-4{float:left;  width:300px; height:10px; position: relative; left:845px; bottom:860px;}
-    .box1 > .box1-4 > ul{font-family: 'Pretendard-Regular';  font-size: 12px; letter-spacing: -1px;}
-    .box1 > .box1-4 > ul > li {float:left; }
-    .box1 > .box1-4 > ul > li a:hover{text-decoration: underline;}
-    .box1 > .box1-4 > ul > li > a {float:left; margin:0px 25px 0px 0px;} 
-    
-
-    .box1 > .box1-5{width:545px; height:200px; margin-top:80px; position:relative;} 
-    .box1 > .box1-5 > .photo1 img{width:545px; height:200px; position: absolute; right:0px;}
-    .box1 > .box1-5 > .photo1 #circle{width:160px; height:160px; border-radius: 50%; background-color: #dec16b; display:inline-block;
-                                    position:absolute; top:20px; left:195px; opacity:0.8;}
-    .box1 > .box1-5 > .photo1 #circle p{font-family: 'Pretendard-Regular';  color:white; font-size:20px; display:inline-block;
-                                        position: absolute; left:35px; top:25px;}
-    .box1 > .box1-5 > .photo1 #circle div{font-family: 'Pretendard-Regular';  color:white; font-size:65px; font-weight: bold; letter-spacing: -3px; position: absolute;
-                                        top:5px; left:35px;}
-    .box1 > .box1-5 > .photo1 #circle span{font-family: 'Pretendard-Regular';  color:white; position:absolute; top:80px; left:110px; font-size:30px;}
-
-    .box1 > .box1-6{width:545px; height:200px; position: relative; bottom:1015px;}
-    .box1 > .box1-6 > .photo2 img{width:540px; height:200px; position: absolute; top: 815px; left:570px;}
-    .box1 > .box1-6 > .photo2 p{font-family: 'Pretendard-Regular'; font-weight: bold; font-size: 80px; color:white; position:absolute; top:865px; left:720px;}
-    .box1 > .box1-6 > .photo2 #square{width:90px; height:30px; background-color:black; position:absolute; top:895px; left:800px; }
-    .box1 > .box1-6 > .photo2 #square div{font-family: 'Pretendard-Regular';  position:absolute; color:white; font-size:13px; left:5px; top:7px;}
-
-   .section2{width:100%; height:880px; margin:0 auto; background-color:#f4f4f4;}
-   .box2{width:1115px; height:760px; margin:0 auto; background-color: #f4f4f4;}
-
-    .box2-1{width:345px; height:590px; position: relative; left:770px; top:90px; background-size: cover;}   
-    .box2-1 p{font-family: 'ghanachoco'; font-size:33px; color:white; position:absolute;  top:35px; left:230px; text-transform: uppercase;}
-
-    .box2 > .box2-2{float:left; width:745px; height:265px; position:relative; bottom:475px;}
-    .box2 > .box2-2 > .product3{float:left; width:230px; height:210px; margin-right:17px; }
-    .box2 > .box2-2 > .product3 img{width:230px; height:210px;}
-    .box2 > .box2-2 > .product3 img:hover{transform: scale(1.1); transition: 0.3s;}
-    .box2 > .box2-2 > .product3 a{font-family: 'Pretendard-Regular';  font-size:12px; line-height:13px;}
-    .box2 > .box2-2 > .product3 > a > p > s{text-decoration: line-through; color:#717171; font-weight: bold;}
-
-    .box2 > .box2-3{float:left; width:745px; height:265px; position: relative; bottom:440px; }
-    .box2 > .box2-3 > .product4{float:left; width:230px; height:210px; margin-right:17px;}
-    .box2 > .box2-3 > .product4 img{width:230px; height:210px;}
-    .box2 > .box2-3 > .product4 img:hover{transform: scale(1.1); transition: 0.3s;}
-    .box2 > .box2-3 > .product4 > a{font-family: 'Pretendard-Regular';  font-size:12px; line-height:13px;}
-    .box2 > .box2-3 > .product4 > a > p > s{text-decoration: line-through; color: #717171; font-weight: bold;}
-    .box2 > .box2-3 > .product4 a > p > span{color:#717171; font-weight: bold;}
-
-    .box2 > .box2-4{float:left; width:300px; height:10px; position: relative; bottom:770px; right:745px;}
-    .box2 > .box2-4 > ul{font-family: 'Pretendard-Regular';  font-size: 12px; letter-spacing: -1px;} 
-    .box2 > .box2-4 > ul > li{float:left;}
-    .box2 > .box2-4 > ul > li > a {float:left; margin:0px 25px 0px 0px;}
-    .box2 > .box2-4 > ul > li a:hover{text-decoration: underline;} 
-    
-    
-    .box3{width:1425px; height:240px;  outline:5px solid #3d362c; outline-offset: -20px; margin:0 auto; background-color:#322b23; position:relative; left:5px; z-index: 1;}
-    .box3 > h1{font-family: 'ghanachoco';  color:white; padding:50px; position: absolute; margin:0 auto; left:480px;}
-    .box3 > .box3-1{width:160px; height:85px; outline:2px solid #9f9c98; outline-offset: -15px; position: absolute; left:625px; bottom:30px;}
-    .box3 > .box3-1 > a {font-family: 'Pretendard-Regular'; color: #797673; font-size: 10px; position:absolute; top:0px; left:46px;}
-
-    .section3{width:100%; height:340px; margin:0 auto; background-color: white;}
-    .box4    {width:1110px; height:315px; margin:0 auto; position: relative; top:180px;}
-    .box4 > .box4-1{ width:1110px; height:240px; margin:0 auto; position:absolute;}
-    .box4 > .box4-1 > .coments1-1 img{float:left; width:355px; height:240px; position: absolute; }
-    .box4 > .box4-1 > .coments1-1 span{position: absolute; left:105px; top:55px; z-index:3; text-transform: uppercase; font-family: Adobe Gothic Std; color:white; font-size:45px; 
-        color:rgba(0,0,0,0); -webkit-text-stroke: 1px white;}
-
-    .box4 > .box4-1 > .coments1-2 #rectangle{ background-color: #968d81; float:left; width:355px; height:240px; position: absolute; left:380px; }
-    .box4 > .box4-1 > .coments1-2 #rectangle p{color:white; font-family: 'Pretendard-Regular';  font-size:20px; position:absolute; top:20px; left:30px;}
-    .box4 > .box4-1 > .coments1-2 #rectangle div{color:white; font-family: 'Pretendard-Regular';  font-size:45px; position:absolute; top:45px; left:30px;}
-    .box4 > .box4-1 > .coments1-2 #rectangle span{color:white; font-family: 'Pretendard-Regular';  font-size:20px; position:absolute; top:105px; left:30px;}
-
-    .box4 > .box4-1 > .coments1-3 img{float:left; width:355px; height:240px; position: absolute; left:755px; bottom: 1px;}
-    .box4 > .box4-1 > .coments1-3 span{position:absolute; z-index:3; right:130px; top:50px; font-family: Adobe Gothic Std; font-size:45px; 
-                                       color:rgba(0,0,0,0); -webkit-text-stroke: 1px white; }
-
-    .box4 > .box4-2{float:right; width:1060px; height:150px; position: relative; bottom:75px;}
-    .box4 > .box4-2 > .coments2 #rectangle1{float:right; width:305px; height:155px; background-color:white; box-shadow: 5px 5px 5px #dbdbdb;}
-    .box4 > .box4-2 > .coments2 #rectangle1 p{font-family: 'Pretendard-Regular'; font-size:20px; padding-top:10px;}
-    .box4 > .box4-2 > .coments2 #rectangle1 > .solid1{width:15px; height:2px; background-color:#888888; position:relative; left:5px; bottom:15px; }
-    .box4 > .box4-2 > .coments2 #rectangle1 > .solid2{width:150px; height:2px; background-color:#888888; position:relative; left:155px; bottom:17px;}
-
-    .box4 > .box4-2 > .coments2 #rectangle2{float:right; width:305px; height:155px; background-color: white; position: absolute; right:375px; box-shadow: 5px 5px 5px #dbdbdb;}
-    .box4 > .box4-2 > .coments2 #rectangle2 p{font-family: 'Pretendard-Regular';  font-size:20px; padding-top:10px;}
-    .box4 > .box4-2 > .coments2 #rectangle2 span{font-family: 'Pretendard-Regular'; font-size:15px; padding:10px;}
-    .box4 > .box4-2 > .coments2 #rectangle2 > .solid1{width:15px; height:2px; background-color:#888888; position:relative; left:5px; bottom:35px;}
-    .box4 > .box4-2 > .coments2 #rectangle2 > .solid2{width:150px; height:2px; background-color:#888888; position:relative; left:155px; bottom:37px;}
-
-    .box4 > .box4-2 > .coments2 #rectangle3{float:right; width:305px; height:155px; background-color: white; position:absolute; box-shadow: 5px 5px 5px #dbdbdb;}
-    .box4 > .box4-2 > .coments2 #rectangle3 p{font-family: 'Pretendard-Regular';  font-size:20px; padding-top:10px;}
-    .box4 > .box4-2 > .coments2 #rectangle3 > .solid1{width:15px; height:2px; background-color:#888888; position:relative; left:5px; bottom:13px;}
-    .box4 > .box4-2 > .coments2 #rectangle3 > .solid2{width:180px; height:2px; background-color:#888888; position:relative; left:125px; bottom:15px;}
-
-    .section4{width:100%; height:330px; margin:0 auto; background-color:#f4f4f4;}
-
-    footer   {width:100%; height:245px; background-color: #2a2a2a; position:absolute; margin:0 auto;}
-    .section5-1{width:100%; height:55px; background-color: #1c1c1c; position:relative; margin:0 auto; top:245px;}
-    .section5{width:1165px; height:190px; position:relative; margin:0 auto;}
-    
-    .section5 > .text-box-1 { width:175px; height:100px;}
-    .section5 > .text-box-1 p{font-family: 'Pretendard-Regular';  font-size:15px; color:white;}
-    .section5 > .text-box-1 div{font-family: 'Pretendard-Regular'; font-size:20px; color:white;}
-
-    .section5 > .text-box-2{width:245px; height:155px; position:relative; left:255px; bottom:100px;}
-    .section5 > .text-box-2 p{font-family: 'Pretendard-Regular';  font-size:15px; color:white; }
-    .section5 > .text-box-2 div{font-family: 'Pretendard-Regular';  font-size:13px; color:white; position:relative; top:40px;} 
-    
-    .section5 > .text-box-3 {width:230px; height:175px; position:relative; left:635px; bottom:255px;}
-    .section5 > .text-box-3 p{font-family: 'Pretendard-Regular';  font-size: 15px; color:white; position:absolute; left:35px; top:0px;}
-
-    .section5 > .text-box-3 > .insta-imgbox1 img{float:left; width:70px; height:65px; position:relative; top:5px;  margin-right:5px;}
-    
-    .section5 > .text-box-3 > .insta-imgbox2 img{float:left; width:70px; height:65px; position:relative; top:10px; margin-right:5px;}
-
-    .section5 > .text-box-4{width:200px; height:15px; position:relative; bottom:430px; left:985px;}
-    .section5 > .text-box-4 p{float:left; font-family: 'Pretendard-Regular';  font-size:15px; color:white;}
-
-
-
-
-
-
-
-
-
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Noto Sans KR", sans-serif;
-    }
-  
-    a {
-      text-decoration: none;
-      color: black;
-    }
-    
-    li {
-      list-style: none;
-    }
-    
-    #header {
-      padding-top: 60px;
-      padding-bottom: 20px;
-      text-align: center;
+  .wrap {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255, 255, 255);
   }
   
-  #wrapper{
-      position: relative;
-      height: 100%;
+  .login {
+    width: 30%;
+    height: 600px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   
-  #content {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      width: 460px;
+  .int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+}
+
+.box {
+    display: block;
+    width: 100%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px;
+    box-sizing: border-box;
+    background: #fff;
+    position: relative;
+}
+
+.box.int_id {
+    padding-right: 20px;
+}
+
+  h2 {
+    color: #555273;
+    font-family: "Recipekorea";
+    font-size: 30px;
+  }
+
+  h3 {
+    margin: 19px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+  
+
+  
+  .login_id input {
+    width: 100%;
+    height: 50px;
+    /* border-radius: 30px; */
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
   }
   
-    .wrap {
-      width: 100%;
-      height: 100vh;
-      position: fixed;
-      display: flex;
+  .login_pw {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+  .login_pw input {
+    width: 100%;
+    height: 50px;
+    /* border-radius: 30px; */
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+  }
+  
+  .login_etc {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .submit {
+    margin-top: 50px;
+    width: 100%;
+
+  }
+  .submit input {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: 40px;
+    background: linear-gradient(to left, rgb(156, 90, 14), #a47017);
+    color: white;
+    font-family: "Recipekorea";
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .img_logo{
+      width: 200px;
+      height: 200px;
       align-items: center;
-      justify-content: center;
-      background: rgb(255, 255, 255);
-    }
-    
-    .login {
-      width: 30%;
-      height: 600px;
-      background: white;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    
-    .int {
-      display: block;
-      position: relative;
-      width: 100%;
-      height: 29px;
-      border: none;
-      background: #fff;
-      font-size: 15px;
   }
-  
-  .box {
-      display: block;
-      width: 100%;
-      height: 51px;
-      border: solid 1px #dadada;
-      padding: 10px 14px 10px 14px;
-      box-sizing: border-box;
-      background: #fff;
-      position: relative;
-  }
-  
-  .box.int_id {
-      padding-right: 20px;
-  }
-  
-    h2 {
-      color: #555273;
-      font-family: "Recipekorea";
-      font-size: 30px;
-    }
-  
-    h3 {
-      margin: 19px 0 8px;
-      font-size: 14px;
-      font-weight: 700;
-  }
-    
-  
-    
-    .login_id input {
-      width: 100%;
-      height: 50px;
-      /* border-radius: 30px; */
-      margin-top: 10px;
-      padding: 0px 20px;
-      border: 1px solid lightgray;
-      outline: none;
-    }
-    
-    .login_pw {
-      margin-top: 20px;
-      width: 80%;
-    }
-    
-    .login_pw input {
-      width: 100%;
-      height: 50px;
-      /* border-radius: 30px; */
-      margin-top: 10px;
-      padding: 0px 20px;
-      border: 1px solid lightgray;
-      outline: none;
-    }
-    
-    .login_etc {
-      margin-top: 20px;
-      padding: 10px;
-      width: 100%;
-      font-size: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: bold;
-    }
-    
-    .submit {
-      margin-top: 50px;
-      width: 100%;
-  
-    } 
-    .submit input {
-      width: 100%;
-      height: 50px;
-      border: 0;
-      outline: none;
-      cursor: pointer;
-      border-radius: 40px;
-      background: linear-gradient(to left, rgb(51, 33, 102), #555273);
-      color: white;
-      font-family: "Recipekorea";
-      font-size: 20px;
-      letter-spacing: 2px;
-    }
-  
-    .img_logo{
-        width: 200px;
-        height: 200px;
-        align-items: center;
-    }
-
-
-
-
-
-
-
-
-    
-
-    
-
-    @font-face {
-      font-family: 'Pretendard-Regular';
-      src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;}
-
-      @font-face {
-          font-family: 'ghanachoco';
-          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;}
-
-@font-face {
-font-family: 'ELAND_Choice_M';
-src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-		12@1.0/ELAND_Choice_M.woff') format('woff');
-font-weight: normal;
-font-style: normal;}
-
-      body {margin:0; padding:0; box-sizing: border-box; font-family:"고딕";}
-      ul, li, ol{list-style:none; margin:0; padding:0;}
-      a{text-decoration: none; color:#333;}
-
-     header{width:1580px; height:90px; margin:0 auto; background-color:white;}
-     #logo{float:left; width:20px; height:30px; margin:10px 0px 30px 30px;} 
-     .nav1 > nav {float:left; width:600px; height:30px; margin:35px 30px 0 100px;}
-     .nav1 > nav ul{font-family:"Lucida Console"; font-size:15pt;}
-     .nav1 > nav ul li{float:left; padding:0 20px;}
-     .nav1 > nav ul a{text-decoration:none; color:#2e2e2e;}
-     .nav1 > nav ul a:hover{color:lightgray;}
-
-     .nav2 > nav{float:right; width:270px; height:30px; margin:35px 30px 0px;}
-     .nav2 > nav ul li{float:left; margin-left:-20px;}
-.nav2 > nav ul img{margin-right:35px;}
-
-
-
-     footer   {width:100%; height:245px; background-color: #2a2a2a; position:absolute; margin:0 auto;}
-      .section5-1{width:100%; height:55px; background-color: #1c1c1c; position:relative; margin:0 auto; top:245px;}
-      .section5{width:1165px; height:190px; position:relative; margin:0 auto;}
-      
-      .section5 > .text-box-1 { width:175px; height:100px;}
-      .section5 > .text-box-1 p{font-family: 'Pretendard-Regular';  font-size:15px; color:white;}
-      .section5 > .text-box-1 div{font-family: 'Pretendard-Regular'; font-size:20px; color:white;}
-
-      .section5 > .text-box-2{width:245px; height:155px; position:relative; left:255px; bottom:100px;}
-      .section5 > .text-box-2 p{font-family: 'Pretendard-Regular';  font-size:15px; color:white; }
-      .section5 > .text-box-2 div{font-family: 'Pretendard-Regular';  font-size:13px; color:white; position:relative; top:40px;} 
-      
-      .section5 > .text-box-3 {width:230px; height:175px; position:relative; left:635px; bottom:255px;}
-      .section5 > .text-box-3 p{font-family: 'Pretendard-Regular';  font-size: 15px; color:white; position:absolute; left:35px; top:0px;}
-
-      .section5 > .text-box-3 > .insta-imgbox1 img{float:left; width:70px; height:65px; position:relative; top:5px;  margin-right:5px;}
-      
-      .section5 > .text-box-3 > .insta-imgbox2 img{float:left; width:70px; height:65px; position:relative; top:10px; margin-right:5px;}
-
-      .section5 > .text-box-4{width:200px; height:15px; position:relative; bottom:430px; left:985px;}
-      .section5 > .text-box-4 p{float:left; font-family: 'Pretendard-Regular';  font-size:15px; color:white;} 
