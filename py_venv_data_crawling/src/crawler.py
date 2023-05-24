@@ -86,25 +86,26 @@ for i in range(0,len(items)-1):
     #모든 옵션 번갈아가며 선택
 
 
-    options = driver.find_elements("class name","ProductOption0")
+    optionsForSelect = driver.find_elements("class name","ProductOption0")
     optional_procuct_index = 0
     optionindices = [None,None,None]
     # print(optionindices)
-    if len(options) >= 1:
+    if len(optionsForSelect) >= 1:
+        
         optionindices[0] = 0
         for option in Select(options[0]).options:
             optionindices[0] += 1
             if option.get_attribute("value") == "*" or option.get_attribute("value") == "**":
                 continue
             option.click()
-            if len(options) >= 2:
+            if len(optionsForSelect) >= 2:
                 optionindices[1] = 0
                 for option in Select(options[1]).options:
                     optionindices[1] += 1
                     if option.get_attribute("value") == "*" or option.get_attribute("value") == "**":
                         continue
                     option.click()
-                    if len(options) >= 3:
+                    if len(optionsForSelect) >= 3:
                         optionindices[2] = 0
                         for option in Select(options[2]).options:
                             if option.get_attribute("value") == "*" or option.get_attribute("value") == "**":
