@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XSports 디자인</title>
+  <link rel="stylesheet" type="text/css" href="css/admin.css">
+</head>
+<body>
+    <h1>XSPORTS</h1>
+  <h2><a href="index.html">home</a></h2> 
+
+ 
+  
+</body>
+</html>
+
+
+
+ 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Website Layout</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+/* Style the header */
+.header {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  
+}
+  
+/* Change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+}
+  .container{
+    display:flex;
+  }
+/* Left and right column */
+.column.side {
+    width: 25%;
+      text-align: center;
+    border: 1px solid #444444;
+}
+/* Middle column */
+  .main-menu{
+    float: left;
+    width: 10%;
+}
+  .rightcolumn {
+    float: right;
+    width: 25%;
+    background-color: white;
+    padding-left: 20px;
+    display:flex;
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}  
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+        width: 100%;
+    }
+}
+/* Style the footer */
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+ 
+<div class="header">
+
+  <h1>xsports 관리</h1> 
+  <p>입고 출고 발주</p>
+</div>
+ 
+<div class="topnav">
+
+  <a href="#">주문</a>
+    <a href="#">배송</a>
+    <a href="#">정산</a>
+    <a href="#">취소</a>
+    <a href="#">입고</a>
+    <a href="#">미답변문의</a>
+
+
+
+</div>
+
+
+
+  <div class="left">
+  <div class="column">
+   
+    <h2>주문/배송 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;배송(우체국) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정산&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;취소신청
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;입고주문</h2>
+<div class="container">
+
+  <table class="kong">
+
+    <tr><td>결제대기</td><td>&nbsp&nbsp</td>&nbsp&nbsp&nbsp&nbsp&nbsp<td>00건</td></tr>
+     <tr><td>신규주문</td><td>&nbsp&nbsp</td><td>00건</td></tr>
+     <tr><td>오늘출발</td><td>&nbsp&nbsp</td><td>00건</td></tr>
+     <tr><td>예약구매</td><td>&nbsp&nbsp</td><td>00건</td></tr>
+      <table class="kong">
+    
+     <tr><td>배송준비</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+     <tr><td>배송중</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+    </tr>
+    
+    <tr><td>배송완료</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+     <tr><td>미수령 신고</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+       <table class="kong">
+
+     <tr><td>구매확정</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+     <tr><td>오늘정산</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+          <tr><td>정산예정</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+          <tr><td>충전금</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+    </tr>
+           <table class="kong">
+    
+     <tr><td>취소신청</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+     <tr><td>반품신청</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+          <tr><td>교환신청</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+        </div>
+    </tr>
+      <table class="kong">
+    
+     <tr><td>입고</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+     <tr><td>주문</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+        <tr><td>새로운 상품</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+    </tr>
+    </table>
+    </div>
+         <div class="card">
+      <h2>스토어 매출 통계</h2>
+      <input type ="button" name"bt1" value="결제자수">
+           <input type ="button" name"bt2" value="결제건수">
+           <input type ="button" name"bt3" value="결제금액">
+   <div class="graph-wrapper">
+
+    <div class="percent-indicator">
+      <div class="per-월"></div>
+      <div class="per-20"></div>
+      <div class="per-40"></div>
+      <div class="per-60"></div>
+      <div class="per-80"></div>
+      <div class="per-100"></div>
+    </div>
+    <ul class="graph">
+      <li class="아이템1 p-100"></li>
+      <li class="아이템2 p-75"></li>
+      <li class="아이템3 p-60"></li>
+      <li class="아이템4 p-35"></li>
+      <li class="아이템5 p-15"></li>
+    </ul>
+  </div>
+   
+       </div>
+  </div>
+</div>
+
+
+    <div class="rightcolumn">
+    <div class="card">
+      <h2>미답변 문의</h2>
+
+     <table class="kong">
+      <tr><td>상품문의</td><td>&nbsp&nbsp</td>&nbsp&nbsp&nbsp&nbsp&nbsp<td>00건</td></tr>
+        <tr><td>게시판</td><td>&nbsp&nbsp</td><td>00건</td>
+            <tr><td>쪽지</td><td>&nbsp&nbsp</td><td>00건</td>
+     <tr><td>고객문의</td><td>&nbsp&nbsp</td><td>00건</td></tr>
+     <tr><td>카카오톡 문의</td><td>&nbsp&nbsp</td><td>00건</td></tr>
+
+    </tr>
+    
+     <tr><td>스티커</td><td>&nbsp&nbsp</td>&nbsp<td>00건</td></tr>
+    </table>
+</div>
+      </div>
+      
+
+</body>
+</html>
