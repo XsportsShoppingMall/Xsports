@@ -10,6 +10,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
+from io import BytesIO
+import csv
 
 # Selenium을 사용하여 웹 페이지를 열고 로드합니다.
 driver = webdriver.Chrome('../chromedriver/chromedriver.exe')  # chromedriver 경로를 설정해주세요.
@@ -17,7 +19,8 @@ driver.get('https://redsports.co.kr/')  # 크롤링할 쇼핑몰의 URL을 입�
 
 #데이터를 받아올 클래스 배열 선언
 class OptionalProduct:
-    def __init__(self, index = None, stock=None, price_change=None, color=None, size=None, other_option=None):
+    def __init__(self, product_no=None, index = None, stock=None, price_change=None, color=None, size=None, other_option=None):
+        self.product_no = product_no
         self.index = index
         self.stock = stock
         self.price_change = price_change
@@ -40,29 +43,42 @@ class RepresentProduct:
 
 represent_products = []
 
+class RepresentImage:
+    
 
+def url_to_blob(url):
+    # URL에서 데이터 가져오기
+    response = requests.get(url)
+    data = response.content
+
+    # 데이터를 Blob 객체로 변환
+    blob = BytesIO(data)
+
+    return blob
 
 
 # 페이지 로딩을 위해 충분한 시간을 기다립니다. 필요에 따라 sleep 등의 대기 메서드를 사용할 수 있습니다.
-driver.implicitly_wait(5)  # 2초간 기다립니다.
+driver.implicitly_wait(5)  # 5초간 기다립니다.
 
 category = {}
 
 #카테고리 선택
 category1s = driver.find_elements("xpath","//*[@id=\"category\"]/div/ul/li")
-for category1 in category1s:
-    category1.click()
+for category1 in range(0,len(category1s)-1):
+    driver.find_elements("xpath","//*[@id=\"category\"]/div/ul/li")[category1].click()
 
     #세부카테고리 선택
     category2s = driver.find_elements("xpath","//*[@id=\"contents\"]/div[1]/ul/li")
-    for category2 in category2s:
-        category2.click()
-
+    for category2 in range(0,len(category2s)-1):
+        driver.find_elements("xpath","//*[@id=\"contents\"]/div[1]/ul/li")[category2].click()
+        #세부 카테고리 이름 출력
+        category[int(driver.find_elements("xpath","//*[@id=\"contents\"]/div[1]/ul/li")[category2].find_element(By.TAG_NAME,"a").get_attribute("href").split('cate_no=')[1])]\
+        =driver.find_elements("xpath","//*[@id=\"contents\"]/div[1]/ul/li")[category2].find_element(By.TAG_NAME,"a").text.split(' (')[0]
         #세부카테고리 {번호:이름} 딕셔너리 저장
-        html = driver.page_source
-        soup = BeautifulSoup(html, 'html.parser')
-        category[int(soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a")['href'].split('cate_no=')[1])]\
-            = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a").text.split(' (')[0]
+        # html = driver.page_source
+        # soup = BeautifulSoup(html, 'html.parser')
+        # category[int(soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a")['href'].split('cate_no=')[1])]\
+        #     = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a").text.split(' (')[0]
         print(category)
 
         #대표상품 한개씩 들어가기
@@ -87,12 +103,14 @@ for category1 in category1s:
             product.add_date = start_date + datetime.timedelta(days=random.randint(0, (end_date - start_date).days))
             # 랜덤한 조회수
             product.views = random.randint(1, 1000)
-            product.more_information_image = "https://redsports.co.kr/"+soup.select_one("#prdDetail > div > p:nth-child(4) > img")['src']
-            product.represent_image = "https:"+soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a > img")['src']
+            
             
             #기본가격
             product.price = soup.select_one("#span_product_price_text").text.replace(",","").replace("원","")
-                                    
+                    
+            #대표상품 이미지, 상세정보 이미지
+            product.more_information_image = url_to_blob("https://redsports.co.kr/"+soup.select_one("#prdDetail > div > p:nth-child(4) > img")['src'])
+            product.represent_image = url_to_blob("https:"+soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a > img")['src'])                
             #모든 옵션 번갈아가며 선택
             driver_selects = driver.find_elements("class name","ProductOption0")
             optional_product_index = 0
@@ -176,6 +194,8 @@ for category1 in category1s:
                                     if waittime == 100:
                                         optional_product.price_change = product.price
                                     else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                                    #옵셔널 프로덕트 대표상품 연결
+                                    optional_product.product_no = product.product_no
                                     #옵셔널 프로덕트 집어넣기
                                     product.optional_products.append(optional_product)
                                     #상품 지우기
@@ -212,6 +232,8 @@ for category1 in category1s:
                                 if waittime == 100:
                                     optional_product.price_change = product.price
                                 else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                                #옵셔널 프로덕트 대표상품 연결
+                                optional_product.product_no = product.product_no
                                 #옵셔널 프로덕트 집어넣기
                                 product.optional_products.append(optional_product)
                                 #상품 지우기
@@ -248,6 +270,8 @@ for category1 in category1s:
                         if waittime == 100:
                             optional_product.price_change = product.price
                         else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                        #옵셔널 프로덕트 대표상품 연결
+                        optional_product.product_no = product.product_no
                         #옵셔널 프로덕트 집어넣기
                         product.optional_products.append(optional_product)
                         #상품 지우기
@@ -284,15 +308,18 @@ for category1 in category1s:
                 if waittime == 100:
                     optional_product.price_change = product.price
                 else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                #옵셔널 프로덕트 대표상품 연결
+                optional_product.product_no = product.product_no
                 #옵셔널 프로덕트 집어넣기
                 product.optional_products.append(optional_product)
                 #상품 지우기
-                driver.find_element("class name","option_box_del").click()                     
+                # driver.find_element("class name","option_box_del").click()                     
 
 
             #대표상품 추가
             represent_products.append(product)
 
+            #상품 출력
             for product in represent_products:
                 print("Product No:", product.product_no)
                 print("Category:", product.category)
@@ -360,3 +387,31 @@ for category1 in category1s:
 
 # 크롤링이 끝났으면 Selenium을 종료합니다.
 driver.quit()
+
+def write_optional_products_to_csv(represent_products, filename):
+    with open(filename, 'w', newline='') as csvfile:
+        fieldnames = ['index', 'stock', 'price_change', 'color', 'size', 'other_option']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for represent_product in represent_products:
+            for product in represent_product.optional_products:
+                writer.writerow({'product_no': product.product_no, 'index': product.index, 'stock': product.stock, 'price_change': product.price_change,
+                                'color': product.color, 'size': product.size, 'other_option': product.other_option})
+
+def write_represent_products_to_csv(represent_products, filename):
+    with open(filename, 'w', newline='') as csvfile:
+        fieldnames = ['product_no', 'category', 'name', 'price', 'add_date', 'views', 'more_information_image',
+                      'represent_image']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for product in represent_products:
+            writer.writerow({'product_no': product.product_no, 'category': product.category, 'name': product.name,
+                             'price': product.price, 'add_date': product.add_date, 'views': product.views,
+                             'more_information_image': product.more_information_image,
+                             'represent_image': product.represent_image})
+            
+# CSV 파일로 저장
+write_optional_products_to_csv(represent_products, 'optional_products.csv')
+write_represent_products_to_csv(represent_products, 'represent_products.csv')
