@@ -1,0 +1,483 @@
+@font-face {
+    font-family: neo;
+    src: url(font/nanum-square-neo/NanumSquareNeo-bRg.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: neo;
+}
+body{
+    margin: auto;
+    height: 100vh;
+}
+
+.main{
+    /* position: relative; */
+    margin: auto;
+    width: 1050px;
+    height: 500px;
+}
+
+/* 찜 목록 */
+article{
+    /* margin-top: 50px; */
+    margin-left: 0;
+    width: 75%;
+    /* margin-top: 50px; */
+    float: right;
+    /* border: 1px solid black; */
+}
+
+table{
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    border-bottom: 3px solid rgb(217, 217, 217);
+}
+
+thead{
+    border-bottom: 3px solid rgb(217, 217, 217);
+}
+thead>tr{
+    height: 70px;
+}
+
+
+td{
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid rgb(217, 217, 217);
+    height: 30px;
+}
+
+tbody>tr>td:nth-of-type(1){width: 30%;}
+tbody>tr>td:nth-of-type(2){width: 50%;}
+tbody>tr>td:nth-of-type(3){width: 20%;}
+
+/* 사이드바 */
+.main>aside{
+    /* position: sticky; */
+    top: 80px;
+    float: left;
+    width: 20%;
+
+    /* border: 1px solid black; */
+    /* margin-right: 20px; */
+}
+aside::after{
+    content: '';
+    clear: both;
+}
+
+/* 화살표 스팬 */
+#arrow{
+    color: #2f348f;
+    /* margin-top: 5px; */
+    /* float: left; */
+    /* padding-top: 5px; */
+    float: right;
+}
+
+/* 사이드바 카테고리 */
+.category{
+    height: 50px;
+    padding-top: 10px;
+    font-size: 20px;
+    text-indent: 20px;
+    border-top: 1px solid rgb(217, 217, 217);
+}
+.category:hover, .wishlist{
+    background-color: #eaebff;
+    font-weight: 700;
+    color: #2f348f;
+    cursor: pointer;
+}
+.outerBox>div:nth-of-type(7){
+    border-top: 1px solid rgb(217, 217, 217); 
+    border-bottom: 1px solid rgb(217, 217, 217);
+}
+
+/* 마이컬리 */
+.myKurly{
+    /* border: 1px solid black; */
+    text-indent: 20px;
+    /* text-align: center; */
+    font-size: 2.2em;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: bolder;
+}
+
+/* 찜한 상품 */
+#listTitle{
+    margin-left: 20px;
+    float:left;
+    font-size: 1.8em;
+    height: 70px;
+    border: none;
+    padding-top: 22px;
+    font-weight: bold;
+}
+/* 안내 문구 */
+#listMent{
+    float: left;
+    margin-top: 30px;
+    color: gray;
+    
+}
+
+/* 이미지 */
+img{
+    margin-top: 13px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+
+
+/* 상품명 나오는 칸 */
+.wishInfo{
+    text-align: left;
+}
+/* 상품명 */
+.wishTitle{
+    font-size: 1.2em;
+}
+/* 가격(숫자만) */
+.wishPrice{
+    font-weight: 700;
+    font-size: 1.4em;
+}
+
+/* 삭제, 담기 버튼 */
+.deleteWish, .addCart{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.btnAdd{
+    color: #2f348f;
+    margin-left: 50px;
+    font-size: 22px;
+    /* border: 1px solid black; */
+}
+/* 삭제 버튼 */
+.deleteWish{
+    border: 1px solid rgb(217, 217, 217);
+    font-size: 20px;
+}
+.deleteWish:hover{
+    cursor: pointer;
+}
+
+/* 담기 버튼 */
+.addCart{
+    border: 1px solid #2f348f;
+    /* font-size: 22px; */
+    text-align: center;
+}
+.addCart:hover{
+    cursor: pointer;
+}
+
+.addText{
+    font-size: 24px;
+    color: #2f348f;
+    margin-right: 33px;
+}
+
+/* 장바구니 아이콘 */
+.cartIcon{
+    color: #2f348f;
+    padding: 0;
+    float: left;
+    margin-left: 30px;
+}
+
+/* 찜 없을 때 상품 구경 버튼 */
+
+#seeProduct{
+    width: 200px;
+    height: 50px;
+    margin-top: 45px;
+    margin-bottom: 150px;
+    /* border: 1px solid #12b486; */
+    border: none;
+    background-color: #2f348f;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: white;
+    margin-left: 292px;
+}
+#seeProduct:hover{
+    cursor: pointer;
+}
+
+/* 찜한 상품이 없습니다 문구 */
+.noWish{
+    border: none;
+    height: 100px;
+    font-size: 1.5em;
+    padding-top: 150px;
+}
+
+.head{
+    /* position: relative; */
+    margin: auto;
+    width: 1050px;
+    height: 120px;
+}
+
+header{
+    height: 120px;
+    /* margin-top: 50px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a>img{
+    width: 120px;
+}
+
+.userBox{
+    margin-top: 10px;
+    text-align: right;
+}
+
+.userBox>a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+.iconBox{
+    width: 100px;
+    float: right;
+}
+
+.material-symbols-outlined{
+    color: #2f348f;
+    font-size: 30px;
+}
+
+
+
+input[type=text]{
+    width: 350px;
+    height: 38px;
+    border: none;
+    text-indent: 15px;
+    font-size: 17px;
+    outline: none;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+#searchIcon{
+    /* border: 1px solid black; */
+    color: #2f348f;
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    font-size: 33px;
+}
+
+.searchBox{
+    position: relative;
+    border: 1px solid #2f348f;
+    height: 45px;
+    border-radius: 12px;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#menuNav{
+    height: 60px;
+    margin: auto;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: #fff;
+    padding-top: 20px;
+}
+
+.navOuterBox{
+    width: 1050px;
+    margin: auto;
+    height: 45px;
+    padding-bottom: 5px;
+}
+.navOuterBox>div{
+    float: left;
+    font-size: 19px;
+    text-indent: 10px;
+}
+.navOuterBox>div::after{
+    content: '';
+    clear: both;
+}
+.categoryNav{
+    width: 30%;
+    height: 45px;
+    /* border-bottom: 1px solid black; */
+}
+.newItem{
+    width: 23%;
+    height: 45px;
+    text-align: center;
+    /* border-bottom: 1px solid black; */
+}
+.bestItem{
+    width: 23%;
+    height: 45px;
+    text-align: center;
+    /* border-bottom: 1px solid black; */
+}
+.saleItem{
+    width: 23%;
+    height: 45px;
+    text-align: center;
+    /* border-bottom: 1px solid black; */
+}
+.catMenu{
+    display: none;
+    width: 200px;
+    margin-top: 17px;
+    background-color: rgba(240, 248, 255);
+}
+.catMenu>div{
+    height: 45px;
+    margin-top: 5px;
+    font-size: 18px;
+    padding-top: 10px;
+}
+.categoryNav:hover .catMenu{
+    display: block;
+}
+
+.catMenu>div:hover{
+    background-color: #eaebff;
+    color: #2f348f;
+    font-weight: 700;
+    z-index: 1;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+footer{
+    width: 1050px;
+    margin: auto;
+}
+.footerAll{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 380px;
+}
+.footer_left{
+    /* border: 1px solid black; */
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 45%;
+    height: 100%;
+    float: left;
+    margin: 15px;
+}
+button{
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid gray ;
+    float: left;
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.Btn1{
+    width: 100%;
+    height: 70px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: gray;
+}
+.Btn2{
+    width: 100%;
+    height: 70px;
+    font-size: 15px;
+    color: gray;
+}
+.Btn3{
+    width: 100%;
+    height: 70px;
+    font-size: 15px;
+    color: gray;
+}
+.footer_left_last{
+    color: gray;
+    font-size: 15px;
+}
+.footer_right{
+    /* border: 1px solid black; */
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin: 10px 5px 10px 10px;
+}
+.footer_right_Top>a{
+    color: black;
+    text-decoration: none;
+}
+.footer_right_Mid{
+    margin-top: 40px;
+    font-size: 13px;
+}
+.footer_right_Mid>p>a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #2f348f;
+}
+.footer_right_last{
+    margin-top: 50px;
+}
+.footer_right_last>a>img{
+    width: 40px;
+    height: 40px;
+}
+#first{
+    position: fixed;
+    border: none;
+    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    transition: all 0.3s ;
+    background-color: #2f348f;
+    color: white;
+    text-align: center;
+}
+#first:hover{
+    bottom: 30px;
+}
+
+
+    .sectionLine{
+        margin-top: 150px;
+        border-top: 1px solid rgb(173, 173, 173);
+    }
