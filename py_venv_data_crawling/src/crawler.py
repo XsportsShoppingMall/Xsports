@@ -6,6 +6,10 @@ from dataclasses import dataclass
 import random
 import datetime
 from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+import time
 
 # Selenium을 사용하여 웹 페이지를 열고 로드합니다.
 driver = webdriver.Chrome('../chromedriver/chromedriver.exe')  # chromedriver 경로를 설정해주세요.
@@ -13,7 +17,8 @@ driver.get('https://redsports.co.kr/')  # 크롤링할 쇼핑몰의 URL을 입�
 
 #데이터를 받아올 클래스 배열 선언
 class OptionalProduct:
-    def __init__(self, stock=None, price_change=None, color=None, size=None, other_option=None):
+    def __init__(self, index = None, stock=None, price_change=None, color=None, size=None, other_option=None):
+        self.index = index
         self.stock = stock
         self.price_change = price_change
         self.color = color
@@ -44,126 +49,278 @@ driver.implicitly_wait(5)  # 2초간 기다립니다.
 category = {}
 
 #카테고리 선택
-button = driver.find_element("xpath","//*[@id=\"category\"]/div/ul/li[1]/a")
-button.click()
+category1s = driver.find_elements("xpath","//*[@id=\"category\"]/div/ul/li")
+for category1 in category1s:
+    category1.click()
 
-#세부카테고리 선택
-button = driver.find_element("xpath","//*[@id=\"contents\"]/div[1]/ul/li[7]/a")
-button.click()
+    #세부카테고리 선택
+    category2s = driver.find_elements("xpath","//*[@id=\"contents\"]/div[1]/ul/li")
+    for category2 in category2s:
+        category2.click()
 
-#세부카테고리 {번호:이름} 딕셔너리 저장
-html = driver.page_source
-soup = BeautifulSoup(html, 'html.parser')
-category[int(soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a")['href'].split('cate_no=')[1])]\
-     = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a").text.split(' (')[0]
-print(category)
+        #세부카테고리 {번호:이름} 딕셔너리 저장
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
+        category[int(soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a")['href'].split('cate_no=')[1])]\
+            = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-menupackage > ul > li:nth-child(1) > a").text.split(' (')[0]
+        print(category)
 
-#대표상품 한개씩 들어가기
-items = driver.find_elements("xpath","//*[@class=\"item xans-record-\"]/div/a/img")
-for i in range(0,len(items)-1):
-    button = items[i]
-    button.click()
-    
-    
-    html = driver.page_source
-    soup = BeautifulSoup(html, 'html.parser')
-
-
-    product = RepresentProduct()
-    product.product_no = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a")['href'].split('product_no=')[1].split('&cate_no')[0]
-    product.category = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a")['href'].split('cate_no=')[1].split('&display_group')[0]
-    product.name = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.infoArea > h3 > font").text
-    product.price = int(soup.select_one("#span_product_price_text").text.replace(",","").replace("원",""))
-    # 랜덤한 날짜 생성
-    start_date = datetime.date(2021, 1, 1)
-    end_date = datetime.date(2023, 6, 4)
-    product.add_date = start_date + datetime.timedelta(days=random.randint(0, (end_date - start_date).days))
-    # 랜덤한 조회수
-    product.views = random.randint(1, 1000)
-    product.more_information_image = "https://redsports.co.kr/"+soup.select_one("#prdDetail > div > p:nth-child(4) > img")['src']
-    product.represent_image = "https:"+soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a > img")['src']
-    
-    #모든 옵션 번갈아가며 선택
+        #대표상품 한개씩 들어가기
+        items = driver.find_elements("xpath","//*[@class=\"item xans-record-\"]/div/a/img")
+        for i in range(0,len(items)-1):
+            button = items[i]
+            button.click()
+            
+            
+            html = driver.page_source
+            soup = BeautifulSoup(html, 'html.parser')
 
 
-    optionsForSelect = driver.find_elements("class name","ProductOption0")
-    optional_procuct_index = 0
-    optionindices = [None,None,None]
-    # print(optionindices)
-    if len(optionsForSelect) >= 1:
-        
-        optionindices[0] = 0
-        for option in Select(options[0]).options:
-            optionindices[0] += 1
-            if option.get_attribute("value") == "*" or option.get_attribute("value") == "**":
-                continue
-            option.click()
-            if len(optionsForSelect) >= 2:
-                optionindices[1] = 0
-                for option in Select(options[1]).options:
-                    optionindices[1] += 1
+            product = RepresentProduct()
+            product.product_no = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a")['href'].split('product_no=')[1].split('&cate_no')[0]
+            product.category = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a")['href'].split('cate_no=')[1].split('&display_group')[0]
+            product.name = soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.infoArea > h3 > font").text
+            product.price = int(soup.select_one("#span_product_price_text").text.replace(",","").replace("원",""))
+            # 랜덤한 날짜 생성
+            start_date = datetime.date(2021, 1, 1)
+            end_date = datetime.date(2023, 6, 4)
+            product.add_date = start_date + datetime.timedelta(days=random.randint(0, (end_date - start_date).days))
+            # 랜덤한 조회수
+            product.views = random.randint(1, 1000)
+            product.more_information_image = "https://redsports.co.kr/"+soup.select_one("#prdDetail > div > p:nth-child(4) > img")['src']
+            product.represent_image = "https:"+soup.select_one("#contents > div.xans-element-.xans-product.xans-product-detail.d_step1 > div.detailArea > div.xans-element-.xans-product.xans-product-image.imgArea > div.keyImg > a > img")['src']
+            
+            #기본가격
+            product.price = soup.select_one("#span_product_price_text").text.replace(",","").replace("원","")
+                                    
+            #모든 옵션 번갈아가며 선택
+            driver_selects = driver.find_elements("class name","ProductOption0")
+            optional_product_index = 0
+            optiondict = {}
+            
+            #옵션이 존재하면
+            if len(driver_selects) >= 1:
+                for option in Select(driver_selects[0]).options:
                     if option.get_attribute("value") == "*" or option.get_attribute("value") == "**":
                         continue
+                    
+                    #옵션 선택
                     option.click()
-                    if len(optionsForSelect) >= 3:
-                        optionindices[2] = 0
-                        for option in Select(options[2]).options:
+                    #dict key 설정
+                    if driver_selects[0].get_attribute("option_title") == "색상":
+                        option_key = "color"
+                    elif driver_selects[0].get_attribute("option_title") == "사이즈":
+                        option_key = "size"
+                    else:
+                        option_key = "other"
+                    #dict value 설정
+                    optiondict[option_key] = option.get_attribute("value")
+                    #옵션이 2개 이상이면
+                    if len(driver_selects) >= 2:
+                        for option in Select(driver_selects[1]).options:
                             if option.get_attribute("value") == "*" or option.get_attribute("value") == "**":
                                 continue
                             option.click()
-                            #옵션 선택 후 html 다시 불러오기
+                            #dict key 설정
+                            if driver_selects[1].get_attribute("option_title") == "색상":
+                                option_key = "color"
+                            elif driver_selects[1].get_attribute("option_title") == "사이즈":
+                                option_key = "size"
+                            else:
+                                option_key = "other"
+                            #dict value 설정
+                            optiondict[option_key] = option.get_attribute("value")
+                            #옵션이 3개 이상이면
+                            if len(driver_selects) >= 3:
+                                for option in Select(driver_selects[2]).options:
+                                    if option.get_attribute("value") == "*" or option.get_attribute("value") == "**":
+                                        continue
+                                    option.click()
+                                    #dict key 설정
+                                    if driver_selects[1].get_attribute("option_title") == "색상":
+                                        option_key = "color"
+                                    elif driver_selects[1].get_attribute("option_title") == "사이즈":
+                                        option_key = "size"
+                                    else:
+                                        option_key = "other"
+                                    #dict value 설정
+                                    optiondict[option_key] = option.get_attribute("value")
+                                    
+                                    #옵셔널 프로덕트 생성
+                                    optional_product = OptionalProduct()
+                                    optional_product.index = optional_product_index
+                                    optional_product_index += 1
+                                    optional_product.stock = random.randint(1,20)
+                                    if "color" in optiondict:
+                                        optional_product.color = optiondict["color"]
+                                    if "size" in optiondict:
+                                        optional_product.size = optiondict["size"]
+                                    if "other" in optiondict:
+                                        optional_product.other_option = optiondict["other"]
+                                    
+                                    html = driver.page_source
+                                    soup = BeautifulSoup(html, 'html.parser')
+                                    
+                                    #가격 변동 대기
+                                    waittime = 0
+                                    while int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원","")) == 0:
+                                        if waittime == 100: 
+                                            optional_product.stock = 0
+                                            break
+                                        waittime += 1
+                                        time.sleep(0.01)
+                                        html = driver.page_source
+                                        soup = BeautifulSoup(html, 'html.parser')
+                                        
+                                    #가격
+                                    if waittime == 100:
+                                        optional_product.price_change = product.price
+                                    else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                                    #옵셔널 프로덕트 집어넣기
+                                    product.optional_products.append(optional_product)
+                                    #상품 지우기
+                                    driver.find_element("class name","option_box_del").click()
+                                    
+                            else:
+                                #옵셔널 프로덕트 생성
+                                optional_product = OptionalProduct()
+                                optional_product.index = optional_product_index
+                                optional_product_index += 1
+                                optional_product.stock = random.randint(1,20)
+                                if "color" in optiondict:
+                                    optional_product.color = optiondict["color"]
+                                if "size" in optiondict:
+                                    optional_product.size = optiondict["size"]
+                                if "other" in optiondict:
+                                    optional_product.other_option = optiondict["other"]
+                                
+                                html = driver.page_source
+                                soup = BeautifulSoup(html, 'html.parser')
+                                
+                                #가격 변동 대기
+                                waittime = 0
+                                while int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원","")) == 0:
+                                    if waittime == 100: 
+                                        optional_product.stock = 0
+                                        break
+                                    waittime += 1
+                                    time.sleep(0.01)
+                                    html = driver.page_source
+                                    soup = BeautifulSoup(html, 'html.parser')
+                                    
+                                #가격
+                                if waittime == 100:
+                                    optional_product.price_change = product.price
+                                else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                                #옵셔널 프로덕트 집어넣기
+                                product.optional_products.append(optional_product)
+                                #상품 지우기
+                                driver.find_element("class name","option_box_del").click()
+                                
+                    else:
+                        #옵셔널 프로덕트 생성
+                        optional_product = OptionalProduct()
+                        optional_product.index = optional_product_index
+                        optional_product_index += 1
+                        optional_product.stock = random.randint(1,20)
+                        if "color" in optiondict:
+                            optional_product.color = optiondict["color"]
+                        if "size" in optiondict:
+                            optional_product.size = optiondict["size"]
+                        if "other" in optiondict:
+                            optional_product.other_option = optiondict["other"]
+                        
+                        html = driver.page_source
+                        soup = BeautifulSoup(html, 'html.parser')
+                        
+                    #가격 변동 대기
+                        waittime = 0
+                        while int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원","")) == 0:
+                            if waittime == 100: 
+                                optional_product.stock = 0
+                                break
+                            waittime += 1
+                            time.sleep(0.01)
                             html = driver.page_source
                             soup = BeautifulSoup(html, 'html.parser')
-                            #옵션 딕셔너리 생성
-                            soup.select_one("id","")
-                            #옵셔널 프로덕트 저장
-                            optionalProduct = OptionalProduct()
-                            optionalProduct.index = optional_procuct_index
-                            optional_procuct_index += 1
                             
-                            optionalProduct.color
-    # options = soup.select(".ProductOption0")
-    # if options[0]['option_title'] == '색상':
-    #     Select(driver.find_element("id","product_option_id1")).select_by_index(2)
-        
-    # #옵션 선택 후 html 다시 받아오기
-    # html = driver.page_source
-    # soup = BeautifulSoup(html, 'html.parser')
-
-    # options = soup.select(".ProductOption0")
-    # for option in options:
-    #     if option['option_title'] == '색상':
+                        #가격
+                        if waittime == 100:
+                            optional_product.price_change = product.price
+                        else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                        #옵셔널 프로덕트 집어넣기
+                        product.optional_products.append(optional_product)
+                        #상품 지우기
+                        driver.find_element("class name","option_box_del").click()
+                driver.back()        
+            else:
+                #옵셔널 프로덕트 생성
+                optional_product = OptionalProduct()
+                optional_product.index = optional_product_index
+                optional_product_index += 1
+                optional_product.stock = random.randint(1,20)
+                if "color" in optiondict:
+                    optional_product.color = optiondict["color"]
+                if "size" in optiondict:
+                    optional_product.size = optiondict["size"]
+                if "other" in optiondict:
+                    optional_product.other_option = optiondict["other"]
             
+                html = driver.page_source
+                soup = BeautifulSoup(html, 'html.parser')
+                
+                #가격 변동 대기
+                waittime = 0
+                while int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원","")) == 0:
+                    if waittime == 100: 
+                        optional_product.stock = 0
+                        break
+                    waittime += 1
+                    time.sleep(0.01)
+                    html = driver.page_source
+                    soup = BeautifulSoup(html, 'html.parser')
+                    
+                #가격
+                if waittime == 100:
+                    optional_product.price_change = product.price
+                else: optional_product.price_change = int(soup.select_one(".total").findChild("em").text.replace(",","").replace("원",""))
+                #옵셔널 프로덕트 집어넣기
+                product.optional_products.append(optional_product)
+                #상품 지우기
+                driver.find_element("class name","option_box_del").click()                     
 
 
-    represent_products.append(product)
+            #대표상품 추가
+            represent_products.append(product)
 
+            for product in represent_products:
+                print("Product No:", product.product_no)
+                print("Category:", product.category)
+                print("Name:", product.name)
+                print("Price:", product.price)
+                print("Add Date:", product.add_date)
+                print("Views:", product.views)
+                print("More Information Image:", product.more_information_image)
+                print("Represent Image:", product.represent_image)
 
+                if product.optional_products:
+                    print("Optional Products:")
+                    for optional_product in product.optional_products:
+                        print("  Index:", optional_product.index)
+                        print("  Stock:", optional_product.stock)
+                        print("  Price Change:", optional_product.price_change)
+                        print("  Color:", optional_product.color)
+                        print("  Size:", optional_product.size)
+                        print("  Other Option:", optional_product.other_option)
+                        print("\n")
+                print("\n\n")
+                
+            driver.back()
+            items = driver.find_elements("xpath","//*[@class=\"item xans-record-\"]/div/a/img")
 
-
-    for product in represent_products:
-        print("Product No:", product.product_no)
-        print("Category:", product.category)
-        print("Name:", product.name)
-        print("Price:", product.price)
-        print("Add Date:", product.add_date)
-        print("Views:", product.views)
-        print("More Information Image:", product.more_information_image)
-        print("Represent Image:", product.represent_image)
-
-        if product.optional_products:
-            print("Optional Products:")
-            for optional_product in product.optional_products:
-                print("  Stock:", optional_product.stock)
-                print("  Price Change:", optional_product.price_change)
-                print("  Color:", optional_product.color)
-                print("  Size:", optional_product.size)
-                print("  Other Option:", optional_product.other_option)
-
-        print("\n")
+        driver.back()
+    
     driver.back()
-    items = driver.find_elements("xpath","//*[@class=\"item xans-record-\"]/div/a/img")
-
 
 # connection = mysql.connector.connect(
 #     host="localhost",
