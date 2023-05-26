@@ -13,3 +13,4 @@ db_data/#ib_16384_0.dblwr
 db_data/ibdata1
 db_data/undo_001
 db_data/undo_002
+db_data/binlog.index
