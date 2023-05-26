@@ -40,7 +40,7 @@ h1 {
   #logo{float:left; width:20px; height:30px; margin:10px 0px 30px 30px;} 
   .nav1 > nav  {float:left; width:600px; height:30px; margin:35px 30px 0 100px;}
   .nav1 > nav ul{font-family:"Lucida Console"; font-size:15pt;}
-  .nav1 > nav ul li{float:left; padding:0 20px;}
+  .nav1 > nav ul li{float:left; padding:0 20px;} 
   .nav1 > nav ul a{text-decoration:none; color:#2e2e2e;}
   .nav1 > nav ul a:hover{color:lightgray;}
 
@@ -48,12 +48,11 @@ h1 {
   .nav2 > nav ul li{float:left; margin-left:-20px;}
   .nav2 > nav ul img{margin-right:35px;}
   
-  #slider{width:100%; height:570px; margin:0 auto; background-color:#c3c0ad; position:relative; }
+  #slider{width:100%; height:540px; margin:0 auto; background-color:#c3c0ad; position:relative; top:50px; }
   #slider > .text > h1{font-family: 'ghanachoco';  font-size: 75px; color:white; position:absolute; top: 195px; left:130px; cursor:context-menu;}
   #slider > .text > h2{font-family: 'ghanachoco';  font-size: 20px; color:white; position: absolute; top:300px; left:145px; cursor:context-menu;}
   
-  #slider .photo{width:60%; height:570px; float:right;}
-  .photo img{width:100%; height: 100%;}
+  
 
   .section1{width:1580px; height:950px; margin:0 auto; position:relative;}
  
@@ -731,14 +730,12 @@ select {
   
   
   /*  */
-  .listContainer .item:hover{
+  .listContainer .item:hover{ 
   /*   background-color: #f8f8f8; */
   }
   .infoContainer .item:hover{
   /*   background-color: #f8f8f8; */
   }
-
-
 
 
 
