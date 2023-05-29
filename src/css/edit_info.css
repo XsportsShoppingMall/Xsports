@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+#list{
+  width:1000px;
+  margin:0 auto;
+  font-family: 'NanumSquareNeo-Variable';
+}
+#UserTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+#UserTable .makeOutLine {
+    border-bottom: 1px solid #D8C8C8;
+    padding: 30px;
+    width: 100px;
+  }
+#UserTable .makeOutLine2{
+   border-bottom: 1px solid #D8C8C8;
+}
+#UserInfoChangeH3{
+  font-size:30px;
+}
+.firstBox{
+  background-color:#ECE6E0;
+  padding-right: 18px;
+}
+.aboutUserInfoEdit{
+  padding:10px;
+  border:1px solid #ECE6E0;
+  border-radius: 3px;
+}
+.aboutUserInfoEdit:focus{
+  background-color:#FCF6F0;
+  outline:1px solid #ab0d0d;
+}
+#updateUserInfo{
+  background-color:#ECE6E0;
+  border:1px solid #DCD6D0;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-family: 'NanumSquareNeo-Variable';
+}
+#updateUserInfo:active{
+  background-color:#c71313;
+}
+.updateUserInfo{
+   text-align:center;
+ padding-bottom:100px;
+}
+.birth{
+  width:100px;
+}
+#userInfoMonth{
+  width:120px;
+}
+.changePW{
+  padding-left:30px;
+  font-size:15px;
+}
+#NewPW{
+  margin-left:77px;
+  margin-top:15px;
+  margin-bottom:10px;
+}
+#reNewPW{
+  margin-left:30px;
+  margin-bottom:15px;
+}
+#PWFail{
+  color:red;
+  padding-left:10px;
+}
+.editTel{
+  width:80px;
+}
+#PWFailchange{
+  opacity:0%;
+}

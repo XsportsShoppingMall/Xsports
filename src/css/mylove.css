@@ -2,12 +2,7 @@
     font-family: neo;
     src: url(font/nanum-square-neo/NanumSquareNeo-bRg.ttf);
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: neo;
-}
+
 body{
     margin: auto;
     height: 100vh;
@@ -178,7 +173,7 @@ img{
 
 /* 담기 버튼 */
 .addCart{
-    border: 1px solid #2f348f;
+    border: 1px solid #b71212;
     /* font-size: 22px; */
     text-align: center;
 }
@@ -188,13 +183,13 @@ img{
 
 .addText{
     font-size: 24px;
-    color: #2f348f;
+    color: #bb1414;
     margin-right: 33px;
 }
 
 /* 장바구니 아이콘 */
 .cartIcon{
-    color: #2f348f;
+    color: #b81a1a;
     padding: 0;
     float: left;
     margin-left: 30px;
@@ -209,7 +204,7 @@ img{
     margin-bottom: 150px;
     /* border: 1px solid #12b486; */
     border: none;
-    background-color: #2f348f;
+    background-color: #b10e0e;
     border-radius: 5px;
     font-size: 1.2em;
     font-weight: 700;
@@ -265,7 +260,7 @@ a>img{
 }
 
 .material-symbols-outlined{
-    color: #2f348f;
+    color: #aa0c0c;
     font-size: 30px;
 }
 
