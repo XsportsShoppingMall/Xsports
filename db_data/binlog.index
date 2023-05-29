@@ -15,3 +15,8 @@
 ./binlog.000014
 ./binlog.000015
 ./binlog.000016
+<<<<<<< HEAD
+=======
+./binlog.000017
+./binlog.000018
+>>>>>>> ecb63004e06114ef0cc1427f917ddf6bb3d890e9
