@@ -149,7 +149,84 @@
           </div>
                </div>
              
-
+  <!-- 장바구니 Modal -->
+  <div class="modal-overlay">
+     <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="cartModal">
+          <div class="modal-dialog " role="document">
+               <div class="modal-content rounded-4 shadow position-fixed top-50 start-50 translate-middle" style="width: 35%;">
+                    <div class="modal-header p-5 pb-4 border-bottom-0">
+                         <h1 class="fw-bold mb-0 fs-2">product.name</h1>
+                         <button type="button" class="btn-close closeCartModal" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+          
+               <div class="modal-body p-5 pt-0">
+                    <form class="">
+                    <!--제품 사진-->
+                    <div class="form-floating mb-3">
+                         <svg class="bd-placeholder-img card-img-top" width="100%" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                              <rect width="100%" height="100%" fill="#55595c" />
+                              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                         </svg>
+                    </div>
+                    <!--옵션 선택-->
+                    <div class="input-group mb-3">
+                         <label class="input-group-text" for="inputGroupSelect01">색상</label>
+                         <select class="form-select" id="inputGroupSelect01">
+                              <option selected>옵션을 골라주세요</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                         </select>
+                    </div>
+                 
+                    <div class="input-group mb-3">
+                         <label class="input-group-text" for="inputGroupSelect01">크기</label>
+                         <select class="form-select" id="inputGroupSelect01">
+                              <option selected>옵션을 골라주세요</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                         </select>
+                    </div>
+                 
+                    <div class="input-group mb-3">
+                         <label class="input-group-text" for="inputGroupSelect01">옵션</label>
+                         <select class="form-select" id="inputGroupSelect01">
+                              <option selected>옵션을 골라주세요</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                         </select>
+                    </div>
+                    <!--갯수 조절 입력창, 버튼-->
+                    <div class="input-group mb-3">
+                         <input type="text" id = "productsNumbers" class="form-control text-end" placeholder="상품 개수" aria-label="상품 개수" value="1">
+                         <span class="input-group-text text-secondary me-3">개</span>
+                              
+                         <div class="input-group-append">
+                              <span class="input-group-text rounded-top-0 cursor-pointer increment-btn" onclick="incrementNumber()">
+                                   <svg class="bi pe-none" width="16" height="16"><use xlink:href="#up"/></svg>
+                              </span>
+                              <span class="input-group-text rounded-bottom-0 cursor-pointer decrement-btn" onclick="decrementNumber()">
+                                   <svg class="bi pe-none" width="16" height="16"><use xlink:href="#down"/></svg>
+                              </span>
+                         </div>
+                         <div class="col-3 input-group-text button-group text-end text-secondary fs-5 fw-bold ms-3 me-3 rounded">10,000원</div>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">
+                                   <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
+                                   장바구니 담기
+                              </button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">
+                                   <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#payment"/></svg>
+                                   바로 결제
+                              </button>
+                         </div>
+                    
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
 
                <article>
                 <table>
@@ -172,9 +249,7 @@
                             </td>
                             <td class="wishBtns">
                                 <button class="deleteWish wish1">삭제</button> <br>
-                                <button 
-
-                                class="addCart wish1">
+                                <button type = "button" class="addCart wish1 openCartModal">
                                 <span class="material-symbols-outlined cartIcon">shopping_cart</span>
                                 <span class="addText">담기</span>
                             </button>
@@ -190,7 +265,7 @@
                         </td>
                         <td class="wishBtns">
                             <button class="deleteWish wish2">삭제</button> <br>
-                            <button class="addCart wish2">
+                            <button type = "button" class="addCart wish2 openCartModal">
                                 <span class="material-symbols-outlined cartIcon">shopping_cart</span>
                                 <span class="addText">담기</span>
                             </button>
@@ -200,10 +275,65 @@
             </table>
         </article>
 
+          <!--pagenation js-->   
+          <script>
+               const pageItems = document.querySelectorAll('.page-item');
+             
+               pageItems.forEach(item => { 
+                 item.addEventListener('click', () => {
+                   // 기존에 활성화된 페이지를 비활성화 처리
+                   const activeItem = document.querySelector('.page-item.active');
+                   activeItem.classList.remove('active');
+                   
+                   // 클릭한 페이지를 활성화 처리
+                   item.classList.add('active');
+                 });
+               });
+          </script>
 
-       
+        <!--cart modal js-->
+        <script>
+          // Get the button element to open the modal
+          const openModalButton = document.querySelectorAll('.openCartModal');
+          const closeModalButton = document.querySelector('.closeCartModal');
+          // Get the modal element
+          const modalOverlay = document.querySelector('.modal-overlay');
+        
+          // Attach event listener to the button
+
+          openModalButton.forEach(button => {
+          button.addEventListener('click', () => {
+               modalOverlay.classList.add('show');
+               }); 
+          });
+
+          closeModalButton.addEventListener('click',() => {
+               modalOverlay.classList.remove('show');
+          });
+
+          var inputNumber = document.getElementById('productsNumbers');
+
+          const incrementButton = document.querySelector(".increment-btn");
+          const decrementButton = document.querySelector(".decrement-btn");
+          
+          incrementButton.addEventListener("click", () => {
+               var currentValue = parseInt(inputNumber.value);
+               inputNumber.value = currentValue + 1;
+          });
+          
+          decrementButton.addEventListener("click", () => {
+               var currentValue = parseInt(inputNumber.value);
+               if (currentValue > 0) {
+               inputNumber.value = currentValue - 1;
+               }
+          });
+          
+     
+     </script>
 
     </body>
+
+    
 
 </script>
           
