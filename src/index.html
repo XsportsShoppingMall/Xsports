@@ -20,19 +20,15 @@
           <!--modal style-->
           <link href="css/modals.css" rel="stylesheet">
           <style>
-               .modal-overlay {
+               #modal-overlay {
                position: fixed;
                top: 0;
                left: 0;
                width: 100%;
                height: 100%;
                background-color: rgba(0, 0, 0, 0.5);
-               display: none;
-               z-index: 9999;
-               }
-          
-               .modal-overlay.show {
                display: block;
+               z-index: 9999;
                }
 
           </style>
@@ -155,11 +151,7 @@
                               </a>
                           </button>
                     </div>
-                    <!--login button js-->
-                    <script src="js/check_login.js"></script>
-                    <script>
-                         checkLoginStatus('loginButton');
-                    </script>
+                    
                </div>
           </div>
                
@@ -236,7 +228,7 @@
                               </ol>
                          </div>
                          <!-- 장바구니 Modal -->
-                         <div class="modal-overlay">
+                         <div class="d-none" id="modal-overlay">
                               <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="cartModal">
                                    <div class="modal-dialog " role="document">
                                         <div class="modal-content rounded-4 shadow position-fixed top-50 start-50 translate-middle" style="width: 35%;">
@@ -668,47 +660,13 @@
                  });
                });
           </script>
-          <!--cart modal js-->
+          <!--login check js-->
+          <script src="js/check_login.js"></script>
+          <!--login button js-->
           <script>
-               // Get the button element to open the modal
-               const openModalButton = document.querySelectorAll('.openCartModal');
-               const closeModalButton = document.querySelector('.closeCartModal');
-               // Get the modal element
-               const modalOverlay = document.querySelector('.modal-overlay');
-             
-               // Attach event listener to the button
-
-               openModalButton.forEach(button => {
-               button.addEventListener('click', () => {
-                    modalOverlay.classList.add('show');
-                    }); 
-               });
-
-               closeModalButton.addEventListener('click',() => {
-                    modalOverlay.classList.remove('show');
-               });
-
-               var inputNumber = document.getElementById('productsNumbers');
-
-               const incrementButton = document.querySelector(".increment-btn");
-               const decrementButton = document.querySelector(".decrement-btn");
-               
-               incrementButton.addEventListener("click", () => {
-                    var currentValue = parseInt(inputNumber.value);
-                    inputNumber.value = currentValue + 1;
-               });
-               
-               decrementButton.addEventListener("click", () => {
-                    var currentValue = parseInt(inputNumber.value);
-                    if (currentValue > 0) {
-                    inputNumber.value = currentValue - 1;
-                    }
-               });
-               
-          
+               checkLoginStatus('loginButton');
+               checkLoginStatus('favorite');
           </script>
-          
-           
           
           <!--default js-->
           <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
