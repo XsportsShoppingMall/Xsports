@@ -117,9 +117,9 @@
                     </form>
                     <!--공백 9c ~ 10c-->
                     <div class="col-2"></div>
-                    <div class="col-1">
+                    <div class="col-1" >
                          <!--loged in profile 12c-->
-                         <div class="dropdown text-end">
+                         <div class="dropdown text-end d-none" id = "profileDropdown">
                               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                    <svg class="bi pe-none me-2" width="32" height="32" class="rounded-circle"><use xlink:href="#my page"/></svg>
                               </a>
@@ -141,21 +141,25 @@
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#my page"/></svg>
                                    내 정보
                                    </a></li>  
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="php/logout.php">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#log-out"/></svg>
                                    로그아웃</a>
                                    </li>
                               </ul>
                          </div>
                          <!--loged out profile 12c-->
-                         <button type="button" class="btn btn-light d-flex align-items-center justify-content-center" href="#">
-                              <div class="d-flex align-items-center fw-bold">
-                                  
+                         <button type="button" class="btn btn-light d-flex align-items-center justify-content-center d-none" id = "loginButton">
+                              <a href="login.html" class="d-flex align-items-center fw-bold text-secondary  text-decoration-none">
                                   <svg class="bi pe-none me-1" width="16" height="16"><use xlink:href="#login"></use></svg>
                                   <p class="text m-0">로그인</p>
-                              </div>
-                          </button> 
+                              </a>
+                          </button>
                     </div>
+                    <!--login button js-->
+                    <script src="js/check_login.js"></script>
+                    <script>
+                         checkLoginStatus('loginButton');
+                    </script>
                </div>
           </div>
                
@@ -298,6 +302,9 @@
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
                                                             장바구니 담기
                                                        </button>
+                                                       <script>
+                                                            checkLoginStatus('cart');
+                                                       </script>
                                                        <button type="button" class="btn btn-sm btn-outline-secondary">
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#payment"/></svg>
                                                             바로 결제
@@ -700,6 +707,8 @@
                
           
           </script>
+          
+           
           
           <!--default js-->
           <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
