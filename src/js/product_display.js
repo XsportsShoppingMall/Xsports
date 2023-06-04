@@ -1,30 +1,3 @@
-function getProductInfo(productID) {
-    return fetch(`get_modal_product.php?productID=${productID}`)
-      .then(response => response.json())
-      .then(data => data[0])
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }
-  
-  // Modal을 업데이트하는 함수
-  function updateModal(product) {
-    // Modal 요소 찾기
-    const cartModal = document.querySelector('#cartModal');
-  
-    // 상품 이름 업데이트
-    const productName = cartModal.querySelector('#productName');
-    productName.textContent = product.name;
-  
-    // 상품 사진 업데이트
-    const productImage = cartModal.querySelector('.product-image');
-    productImage.src = product.imageURL;
-  
-    // 나머지 내용 업데이트...
-  
-    // Modal 열기
-  }
-
 function getProductList(category, search, sort, page) {
     const url = `php/get_represent_products.php?category=${category}&search=${search}&sort=${sort}&page=${page}`;
     fetch(url)
@@ -40,7 +13,7 @@ function getProductList(category, search, sort, page) {
           productCard.innerHTML = `
             <div class="card shadow-sm">
               <div class="position-relative">
-                <a href="more_information.html">
+                <a href="more_information.html?product_id=${product.product_no}" class = "product-link">
                   <img src="${product.represent_imageURL}" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
                 </a>
                 <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
@@ -63,22 +36,31 @@ function getProductList(category, search, sort, page) {
             </div>
           `;
           productsContainer.appendChild(productCard);
-          // cart modal
+          // open
           const openModalButton = productCard.querySelector('.openCartModal');
           const favoriteButton = productCard.querySelector('.favorite-button');
-  
+
           // Attach event listener to the button
           checkLoginStatus('cart', openModalButton);
-          
+
           openModalButton.addEventListener('click', () => {
-            
             getProductInfo(product.product_no)
                 .then(product => {
                 updateModal(product);
                 });
           });
+
+
+  
+          // Attach event listener to the button
+          checkLoginStatus('cart', openModalButton);
+          
+          openModalButton.addEventListener('click', () => {
+            openModal(product);
+          });
   
           checkLoginStatus('favorite', favoriteButton);
+          
           favoriteButton.addEventListener('click', () => {
             favoriteButton.classList.toggle('btn-outline-danger');
           });
@@ -228,20 +210,3 @@ function getProductList(category, search, sort, page) {
     getProductList(category, search, sort, page);
   });
   
-  // 갯수 조절 버튼
-var inputNumber = document.getElementById('productsNumbers');
-
-const incrementButton = document.querySelector(".increment-btn");
-const decrementButton = document.querySelector(".decrement-btn");
-
-incrementButton.addEventListener("click", () => {
-    var currentValue = parseInt(inputNumber.value);
-    inputNumber.value = currentValue + 1;
-});
-
-decrementButton.addEventListener("click", () => {
-    var currentValue = parseInt(inputNumber.value);
-    if (currentValue > 0) {
-    inputNumber.value = currentValue - 1;
-    }
-});

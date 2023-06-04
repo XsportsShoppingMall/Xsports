@@ -41,7 +41,7 @@ function handleLoginStatus(isLoggedIn,object,button) {
                 closeModalButton.addEventListener('click',() => {
                     modalOverlay.classList.add('d-none');
                 });
-
+                
                 // 아이템 받아오기
 
                 

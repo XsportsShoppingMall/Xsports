@@ -124,20 +124,20 @@
                                    <svg class="bi pe-none me-2" width="32" height="32" class="rounded-circle"><use xlink:href="#my page"/></svg>
                               </a>
                               <ul class="dropdown-menu text-small">
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="cart.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
                                    장바구니
                                    </a></li>
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="favorite.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#favorite"/></svg>
                                    찜목록
                                    </a></li>
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="order_history.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#order-history"/></svg>
                                    주문내역
                                    </a></li>
                                    <li><hr class="dropdown-divider"></li>
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="mypage.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#my page"/></svg>
                                    내 정보
                                    </a></li>  
@@ -372,59 +372,83 @@
                                              <form class="">
                                              <!--제품 사진-->
                                              <div class="form-floating mb-3">
-                                                  <img class="bd-placeholder-img card-img-top product-image" width="100%" height="550" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
+                                                  <img src = "#" class="bd-placeholder-img card-img-top" id = "modalProductImg" width="100%" height="550" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
                                              </div>
                                              <!--옵션 선택-->
-                                             <div class="input-group mb-3">
-                                                  <label class="input-group-text" for="inputGroupSelect01">색상</label>
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                       <option selected>옵션을 골라주세요</option>
-                                                       <option value="1">One</option>
-                                                       <option value="2">Two</option>
-                                                       <option value="3">Three</option>
-                                                  </select>
-                                             </div>
+                                             <div id="optionBox">
+                                                  <div id = "colorOptionbox">
+                                                       <div class="input-group mb-3">
+                                                            <label class="input-group-text" for="colorOption">색상</label>
+                                                            <select class="form-select" id="colorOption">
+                                                                 <option selected>옵션을 골라주세요</option>
+                                                                 <option value="1">One</option>
+                                                                 <option value="2">Two</option>
+                                                                 <option value="3">Three</option>
+                              
+                                                            </select>
+                                                       </div>
+                                                  </div>
                                           
-                                             <div class="input-group mb-3">
-                                                  <label class="input-group-text" for="inputGroupSelect01">크기</label>
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                       <option selected>옵션을 골라주세요</option>
-                                                       <option value="1">One</option>
-                                                       <option value="2">Two</option>
-                                                       <option value="3">Three</option>
-                                                  </select>
+                                                  <div id = "sizeOptionbox">
+                                                       <div class="input-group mb-3">
+                                                            <label class="input-group-text" for="sizeOption">크기</label>
+                                                            <select class="form-select" id="sizeOption">
+                                                                 <option selected>옵션을 골라주세요</option>
+                                                                 <option value="1">One</option>
+                                                                 <option value="2">Two</option>
+                                                                 <option value="3">Three</option>
+                                                            </select>
+                                                       </div> 
+                                                  </div>
+                                                  
+                                                  <div id = "other_optionOptionbox">
+                                                       <div class="input-group mb-3">
+                                                            <label class="input-group-text" for="other_optionOption">옵션</label>
+                                                            <select class="form-select" id="other_optionOption">
+                                                                 <option selected>옵션을 골라주세요</option>
+                                                                 <option value="1">One</option>
+                                                                 <option value="2">Two</option>
+                                                                 <option value="3">Three</option>
+                                                            </select>
+                                                       </div>
+                                                  </div>
                                              </div>
-                                          
-                                             <div class="input-group mb-3">
-                                                  <label class="input-group-text" for="inputGroupSelect01">옵션</label>
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                       <option selected>옵션을 골라주세요</option>
-                                                       <option value="1">One</option>
-                                                       <option value="2">Two</option>
-                                                       <option value="3">Three</option>
-                                                  </select>
-                                             </div>
+                                             
                                              <!--갯수 조절 입력창, 버튼-->
                                              <div class="input-group mb-3">
-                                                  <input type="text" id = "productsNumbers" class="form-control text-end" placeholder="상품 개수" aria-label="상품 개수" value="1">
+                                                  <input type="text" id = "modalProductNumbers" class="form-control text-end" placeholder="상품 개수" aria-label="상품 개수" value="1">
                                                   <span class="input-group-text text-secondary me-3">개</span>
                                                        
                                                   <div class="input-group-append">
-                                                       <span class="input-group-text rounded-top-0 cursor-pointer increment-btn" onclick="incrementNumber()">
+                                                       <button type="button" class="input-group-text rounded-top-0 cursor-pointer" id="increment-btn">
                                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#up"/></svg>
                                                        </span>
-                                                       <span class="input-group-text rounded-bottom-0 cursor-pointer decrement-btn" onclick="decrementNumber()">
+                                                       <button type="button" class="input-group-text rounded-bottom-0 cursor-pointer" id="decrement-btn">
                                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#down"/></svg>
                                                        </span>
                                                   </div>
-                                                  <div class="col-3 input-group-text button-group text-end text-secondary fs-5 fw-bold ms-3 me-3 rounded">10,000원</div>
-                                                       <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                  <div class="col-3 input-group-text button-group text-end text-secondary fs-5 fw-bold ms-3 me-3 rounded" id = "modalProductsPrice">옵션 선택</div>
+                                                       <button type="button" class="btn btn-sm btn-outline-secondary" id="add-cart" data-bs-toggle="modal" data-bs-target="#add-cart-complete">
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
                                                             장바구니 담기
                                                        </button>
-                                                       <!-- <script>
-                                                            checkLoginStatus('cart');
-                                                       </script> -->
+                                                       <div class="modal fade" height="50%" id="add-cart-complete" tabindex="-1" aria-labelledby="completeLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                              <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                  <h5 class="modal-title ms-5" id="completeLabel">장바구니에 추가되었습니다.</h5>
+                                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                 </div>
+                                                                 <div class="modal-body text-center">
+                                                                 지금 확인 하시겠습니까?   
+                                                                 </div>
+                                                                <div class="modal-footer d-flex justify-content-center">
+                                                                  <a class="btn btn-secondary" href="cart.html">장바구니로 이동</a>
+                                                                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">쇼핑 계속하기</button>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
                                                        <button type="button" class="btn btn-sm btn-outline-secondary">
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#payment"/></svg>
                                                             바로 결제
@@ -544,6 +568,7 @@
           <!--sidebar js-->
           <script src="js/sidebars.js"></script>
           <script src="js/product_display.js"></script>
+          <script src="js/cart_modal.js"></script>
      </body>
 </html>
 

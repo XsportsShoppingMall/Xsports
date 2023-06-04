@@ -1,6 +1,6 @@
 <?php
 // DB 연결 정보
-$host = 'db';
+$host = 'db:3306';
 $dbname = 'XsportsShoppingMalldb';
 $username = 'cookUser';
 $password = '1234';
@@ -11,8 +11,11 @@ if ($conn->connect_error) {
     die('DB Connection failed: ' . $conn->connect_error);
 }
 
+// 사용자 입력 값
+$productID = $_GET['productID'];
+
 // 쿼리 생성
-$sql = "SELECT * FROM items WHERE product_no = $productID";
+$sql = "SELECT * FROM represent_productTBL WHERE product_no = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $productID); // i는 integer 데이터 타입을 의미합니다.
 
