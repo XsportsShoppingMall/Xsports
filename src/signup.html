@@ -8,7 +8,7 @@
       var checkbox2 = document.getElementById("agree2");
       var checkbox3 = document.getElementById("agree3");
       if (!checkbox1.checked || !checkbox2.checked || !checkbox3.checked ) {
-        alert("약관에 동의해야 합니다.");
+        alert("필수 약관에 대해 동의해야 다음 서비스로 넘어갈수 있습니다.");
         return false; // 폼 제출 방지
       }
       return true; // 폼 제출 허용
@@ -144,25 +144,25 @@
             <p>성별</p>
             <p>이름</p>
             <p>닉네임</p>
-            <p>생년월일</p>
+            <p>생년월일(6자리)</p>
             <p>휴대전화</p>
           </div>
 
         <form method="post" action="signup_result.php">
           <div>
-            <input type="ID" name="ID" placeholder="아이디 입력">  
+            <input type="ID" name="ID" placeholder="아이디 입력" required>  
             <br>
             <button>중복확인</button><br>
             <input type="password" name="password" placeholder="영문, 숫자 조합 6~12자" required><br><br>
             <input type="password" name="confirm_password" placeholder="영문, 숫자 조합 6~12자" required onkeyup="checkPasswordMatch()"><br><br>
             <select id="gender" name="gender">
-              <option value="male">남성</option>
-              <option value="female">여성</option>
+              <option value="man">남성</option>
+              <option value="woman">여성</option>
             </select><br><br>
-            <input type="text" name="name" placeholder="이름을 입력하세요."><br><br>
-            <input type="text" name="nickname" placeholder="닉네임을 입력하세요."><br><br>
-            <input type="text" name="birthday" placeholder="예) 20200904"><br><br>
-            <input type="tel" name="phone_number" placeholder="예) 01012341375"><br>
+            <input type="text" name="name" placeholder="이름을 입력하세요." required><br><br>
+            <input type="text" name="nickname" placeholder="닉네임을 입력하세요." required><br><br>
+            <input type="text" name="resident_registration_number" placeholder="예) 230605" required><br><br>
+            <input type="tel" name="phone_number" placeholder="예) 01012341375" required><br>
             <button>중복확인</button>
           </div>
         </div>
@@ -172,16 +172,16 @@
           <h5>추가 입력 정보</h5>
           <div>
             <div>
-              <p>주소</p><br><br><br><br><br><br><br><br>
+              <p>주소</p><br><br><br><br><br>
               <p>이메일</p>
             </div>
 
             <div>
-              <input type="address" name="default_zip_code" placeholder="우편번호">
-              <input type="address" name="default_address" placeholder="도로명주소"><br>
+              <input type="address" name="default_zip_code" placeholder="우편번호" required>
+              <input type="address" name="default_address" placeholder="도로명주소" required><br>
               <input type="address" placeholder="상세주소"><br>
               <br>
-              <input type="text" name="email" placeholder="emample@email.com">
+              <input type="text" name="email" placeholder="emample@email.com" required>
             </div>
           </div>
         </div>
