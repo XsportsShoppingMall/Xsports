@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // 사용자마다 개별적인 데이터베이스 계정을 생성하여 접속합니다
-    $database_user = "user_" . $username; // 사용자마다 독립적인 데이터베이스 계정 생성
+    // $database_user = "user_" . $username; // 사용자마다 독립적인 데이터베이스 계정 생성
 
     // MySQL 데이터베이스 연결 설정
     $servername = "db:3306";
@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
 
         // 로그인 성공 후 이동할 페이지로 리디렉션
-        header("Location: ../index.html");
+        header("Location:../index.html");
         exit();
     } else {
         // 로그인 실패 시 에러 메시지 출력
         echo "<script>alert('로그인 실패: 아이디 또는 비밀번호가 올바르지 않습니다.');</script>";
-        echo "<script>window.location.href = 'login.html';</script>";
+        echo "<script>window.location.href = '../login.html';</script>";
     }
 
     // MySQL 연결 종료

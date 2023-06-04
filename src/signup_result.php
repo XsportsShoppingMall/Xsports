@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    $con = mysqli_connect("db:3306", "cookUser", "1234", "XsportsShoppingMalldb") or die("MySQL 접속 실패");
+    $con = new mysqli("db:3306", "cookUser", "1234", "XsportsShoppingMalldb") or die("MySQL 접속 실패");
 
     $default_zip_code = $_POST["default_zip_code"];
     $default_adress = $_POST["default_address"];
@@ -18,8 +18,9 @@
     $sql .= " VALUES ('$default_zip_code', '$default_adress', '$email', '$gender', '$ID', '$name', '$nickname', '$password', '$phone_number', '$resident_registration_number', '$term_of_service_agreement')";
     
     $ret = mysqli_query($con , $sql);
+    $con->close();
 ?>
-<html>  
+<html>    
 <head>
   <meta charset="UTF-8">
 </head>

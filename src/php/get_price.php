@@ -18,6 +18,15 @@ $size = $_GET['size'];
 $other_option = $_GET['other_option'];
 
 // optional_productTBL에서 product_no가 $productID인 상품 검색
+if($color == null){
+    $color='';
+}
+if($size == null){
+    $size='';
+}
+if($other_option == null){
+    $other_option='';
+}
 $sql = "SELECT * FROM optional_productTBL WHERE product_no = ? AND color = ? AND size = ? AND other_option = ?";
 
 $stmt = $conn->prepare($sql);

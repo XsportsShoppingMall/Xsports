@@ -1,6 +1,77 @@
-$(document).ready(function(){
+var page = 1;
+$(document).ready(async function(){
+  const url = `php/get_user_id.php`
+  fetch(url)
+  .then(response => response.text())
+  .then(async member_id => {
+  const url2 = `php/get_cart_item.php?member_id=${member_id}`;
+  await fetch(url2)
+  .then(response => response.json())
+  .then(items => {
+    const itemContainer = document.querySelector(".cart_list");
+    var it = 0;
+    itemContainer.innerHTML = `
+      <li>
+        <div class="checkbox">
+            <input type="checkbox" name="all_chk" id="all_chk">
+            <label for="all_chk">전체선택</label>
+        </div>
+        <div class="del_btn">삭제 (<span class="num">0</span>)</div>
+      </li>
+      `;
+
+    items.forEach(item => {
+      const product_image = item.represent_imageURL;
+      it += 1;
+      const vari = it;
+      const quantity = item.product_quantity
+      console.log(item.product_quantity);
+      
+      
+
+      const item_list = document.createElement('li');
+      // productCard.classList.add('checkbox');
+      item_list.innerHTML = `
+        <div class="checkbox">
+          <input type="checkbox" name="item_chk" class="item_chk0${vari}">
+          <label for="item_chk0${vari}"></label>
+        </div>
+        
+        <div class="item_detail">
+          <img src="${product_image}">
+          <p class="name"><strong>"${item.name}"</strong></p>
+          <p class="options ms-5">
+            <div class="ms-5">${item.size}</div>
+            <div class="ms-5">${item.color}</div>
+            <div class="ms-5">${item.other_option}</div>
+          </div>
+        </div>
+        <div class="opt_info d-flex">
+            <strong class="price_unit col-4">${item.price_change.toLocaleString()+"원"}</strong>
+            <div class="price_btn col-5">
+                <input type="button" value="-" class="minus_btn">
+                <input type="text" value="${quantity}" class="number">
+                <input type="button" value="+" class="plus_btn">
+            </div>
+            <div class="total_p col-6">
+                <strong class="price_amount">${(item.price_change * quantity).toLocaleString()+"원"}</strong>
+                <span class="del_li_btn"><img src="https://tictoc-web.s3.ap-northeast-2.amazonaws.com/web/img/icon/btn_del_circle.svg"></span>
+            </div>
+        </div>
+      `;
+      
+      itemContainer.appendChild(item_list);
+      console.log(item_list);
+      console.log(itemContainer);
+      
+      })})
+    })
+
+
+
+
   //전체 선택 클릭시 
-  $('#all_chk').change(function () {
+await $('#all_chk').change(function () {
     if($("#all_chk").is(":checked")){
       $("input[name=item_chk]").prop("checked",true);
     }else{
@@ -17,7 +88,7 @@ $(document).ready(function(){
     $('.del_btn .num').text(check_cnt);
   });
 
- $('input[name="item_chk"]').change(function () {
+ await $('input[name="item_chk"]').change(function () {
 
   var itemLength = $('input[name="item_chk"]').length;
   var checkedLength = $('input[name="item_chk"]:checked').length;

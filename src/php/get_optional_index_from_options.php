@@ -34,3 +34,5 @@ $conn->close();
 // 검색된 상품 정보를 JSON 형식으로 반환합니다.
 echo json_encode($product);
 ?>
+
+

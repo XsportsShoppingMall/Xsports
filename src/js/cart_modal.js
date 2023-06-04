@@ -9,6 +9,7 @@ function getProductInfo(productID) {
 var op1;
 var op2;
 var op3;
+var productIndex;
 
 function openModal(product){
     //상품 갯수 업데이트
@@ -19,12 +20,13 @@ function openModal(product){
     getProductInfo(product.product_no)
     .then(product => {
     updateModal(product);
+    productNo = product.product_no;
     });
 }
 
 const productsPrice = cartModal.querySelector('#modalProductsPrice');
 var productNo;
-var productIndex;
+
 
 //옵션조절
 const colorOption = cartModal.querySelector('#colorOption');
@@ -91,18 +93,24 @@ function updatePrice(product_no) {
   fetch(`php/get_price.php?product_no=${product_no}&color=${op1}&size=${op2}&other_option=${op3}`)
   .then(response => response.json())
   .then(data => {
-    if (data === null) {productsPrice.textContent = "옵션 선택";}
+    if (data === null) {
+      productsPrice.textContent = "옵션 선택";
+      productIndex = null;  
+    }
     else{
+      console.log(data);
       const price = parseInt(data.price);
       let productNumbers = parseInt(inputNumber.value);
       const totalPrice = price * productNumbers;
       productsPrice.textContent = totalPrice.toLocaleString() + '원';
       productIndex = data.product_index;
-    }
+    };
+    console.log(productIndex);
   })
   .catch(error => {
     console.error('Error:', error);
   });
+  
 }
 
 //옵션 생성함수 3종
@@ -173,54 +181,55 @@ function updateModal(product) {
     .catch(error => {
       console.error('Error:', error);
     });
-
-    
-  
   
     // 나머지 내용 업데이트...
   }
 
   //장바구니 추가
 const addToCartButton = document.querySelector('#add-cart');
-
+// 장바구니에 담기 버튼 클릭 이벤트
 addToCartButton.addEventListener('click', () => {
-  // 회원 ID를 가져오는 요청
+  // 옵션이 선택되었는지 확인
+  if (productIndex !== null) {
+    // 회원 ID를 가져오는 요청
     fetch('php/get_user_id.php')
-    .then(response => response.text())
-    .then(id => {
-    const memberID = id; // 회원 ID 값
-    const productQuantity = parseInt(inputNumber.value);
+      .then(response => response.text())
+      .then(memberID => {
+        const productQuantity = parseInt(inputNumber.value);
         const data = {
-            memberID: memberID,
-            product_no: productNo,
-            product_index: productIndex,
-            product_quantity: productQuantity
+          memberID: memberID,
+          product_no: productNo,
+          product_index: productIndex,
+          product_quantity: productQuantity
         };
-    console.log(data);
 
-    // 서버로 데이터 전송
-    fetch('php/add_to_cart.php', {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(result => {
-        // 성공적으로 장바구니에 추가되었을 때의 처리 로직
-        console.log('상품이 장바구니에 추가되었습니다.');
-
-        
-    })
-    .catch(error => {
+        // 서버로 데이터 전송하여 장바구니에 상품 추가
+        fetch('php/add_to_cart.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(response => response.json())
+          .then(result => {
+            // 성공적으로 장바구니에 추가되었을 때의 처리 로직
+            console.log('상품이 장바구니에 추가되었습니다.');
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      })
+      .catch(error => {
         console.error('Error:', error);
-        });
-    })
-    .catch(error => {
-    console.error('Error:', error);
-    });
-})
+      });
+  } else {
+    // 옵션이 선택되지 않았음을 사용자에게 알림
+    alert('옵션을 선택해주세요.');
+  }
+});
+
+
     
 
   

@@ -1,8 +1,24 @@
-function getProductList(category, search, sort, page) {
+  // 사용자 입력 조건
+  const buttons = document.querySelectorAll('.category'); // 카테고리 버튼들을 선택
+  const searchInput = document.getElementById('search-input'); // 검색어 입력 필드
+  const searchButton = document.getElementById('search-button'); // 검색 버튼
+  let category = ''; // 선택한 카테고리를 저장할 변수
+  let sort = 'views'; // 초기 정렬을 '인기순'으로 설정 (조회수 기준)
+  let search = ''; // 검색어를 저장할 변수
+  const page = 1; // 예시로 첫 번째 페이지
+  const currentHref = window.location.href
+    // 초기화면에서 모든 상품 불러오기 (인기순으로 정렬)
+    if( currentHref== "http://localhost:8080/src/index.html"){
+      getProductList(category, search, sort, page);
+    }
+
+async function getProductList(category, search, sort, page) {
+
     const url = `php/get_represent_products.php?category=${category}&search=${search}&sort=${sort}&page=${page}`;
-    fetch(url)
+    await fetch(url)
       .then(response => response.json())
       .then(data => {
+        
         const productsContainer = document.querySelector('#product-container');
         productsContainer.innerHTML = ''; // 기존 상품 요소 초기화
   
@@ -47,16 +63,8 @@ function getProductList(category, search, sort, page) {
             getProductInfo(product.product_no)
                 .then(product => {
                 updateModal(product);
+                openModal(product);
                 });
-          });
-
-
-  
-          // Attach event listener to the button
-          checkLoginStatus('cart', openModalButton);
-          
-          openModalButton.addEventListener('click', () => {
-            openModal(product);
           });
   
           checkLoginStatus('favorite', favoriteButton);
@@ -152,15 +160,7 @@ function getProductList(category, search, sort, page) {
 //     getProductList(category, search, sort, page);
 //   }
   
-  // 사용자 입력 조건
-  const buttons = document.querySelectorAll('.category'); // 카테고리 버튼들을 선택
-  const searchInput = document.getElementById('search-input'); // 검색어 입력 필드
-  const searchButton = document.getElementById('search-button'); // 검색 버튼
-  let category = ''; // 선택한 카테고리를 저장할 변수
-  let sort = 'views'; // 초기 정렬을 '인기순'으로 설정 (조회수 기준)
-  let search = ''; // 검색어를 저장할 변수
-  const page = 1; // 예시로 첫 번째 페이지
-  
+
   // 검색 버튼 클릭 이벤트 처리
   searchButton.addEventListener('click', () => {
     search = searchInput.value; // 검색어 값
@@ -185,9 +185,6 @@ function getProductList(category, search, sort, page) {
       getProductList(category, search, sort, page);
     }
   });
-  
-  // 초기화면에서 모든 상품 불러오기 (인기순으로 정렬)
-  getProductList(category, search, sort, page);
   
   // 정렬 기능 추가
   const sortViewsButton = document.getElementById('sort-views');
