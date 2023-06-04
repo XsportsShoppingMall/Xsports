@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <?php
+<<<<<<< HEAD
     $con = new mysqli("db:3306", "cookUser", "1234", "XsportsShoppingMalldb") or die("MySQL 접속 실패");
+=======
+    $con = mysqli_connect("db:3306", "root", "example", "XsportsShoppingMalldb") or die("MySQL 접속 실패");
+>>>>>>> 268b328ef8157efbc1ff74c72baa7dd89c6f011f
 
     $default_zip_code = $_POST["default_zip_code"];
     $default_adress = $_POST["default_address"];
@@ -18,7 +22,22 @@
     $sql .= " VALUES ('$default_zip_code', '$default_adress', '$email', '$gender', '$ID', '$name', '$nickname', '$password', '$phone_number', '$resident_registration_number', '$term_of_service_agreement')";
     
     $ret = mysqli_query($con , $sql);
+<<<<<<< HEAD
     $con->close();
+=======
+
+    echo "<H1> 신규 회원 입력 결과 </H1>";
+    if($ret) {
+        echo "데이터가 성공적으로 입력됨.";
+    }
+    else {
+        echo "데이터 입력 실패!!!"."<br>";
+        echo "실패 원인 :".mysqli_error($con);
+    }
+    mysqli_close($con);
+
+    echo "<br> <a href='main.html'> <--초기화면</a>";
+>>>>>>> 268b328ef8157efbc1ff74c72baa7dd89c6f011f
 ?>
 <html>    
 <head>
@@ -126,8 +145,8 @@
         <div>
           <div>
             <p>아이디</p><br>
-            <p>비밀번호</p>
-            <p>비밀번호 확인</p><br>
+            <p>비밀번호</p><br><br>
+            <p>비밀번호 확인</p>
             <p>성별</p>
             <p>이름</p>
             <p>닉네임</p>
@@ -141,7 +160,7 @@
             <br>
             <button>중복확인</button><br>
             <input type="password" name="password" placeholder="영문, 숫자 조합 6~12자" required><br><br>
-            <input type="password" name="confirm_password" placeholder="영문, 숫자 조합 6~12자" required onkeyup="checkPasswordMatch()"><br><br>
+            <input type="password" name="confirm_password" placeholder="영문, 숫자 조합 6~12자" required onkeyup="checkPasswordMatch()">
             <select id="gender" name="gender">
               <option value="man">남성</option>
               <option value="woman">여성</option>
