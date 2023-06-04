@@ -1,32 +1,27 @@
 <!DOCTYPE html>
+<?php
+    $con = mysqli_connect("db:3306", "cookUser", "1234", "XsportsShoppingMalldb") or die("MySQL 접속 실패");
+
+    $default_zip_code = $_POST["default_zip_code"];
+    $default_adress = $_POST["default_address"];
+    $email = $_POST["email"];
+    $gender = $_POST["gender"];
+    $ID = $_POST["ID"];
+    $name = $_POST["name"];
+    $nickname = $_POST["nickname"];
+    $password = $_POST["password"];
+    $phone_number = $_POST["phone_number"];
+    $resident_registration_number = $_POST["resident_registration_number"];
+    $term_of_service_agreement = "agree";
+    
+    $sql = "INSERT INTO memberTBL (default_zip_code, default_adress, email, gender, ID, `name`, nickname, `password`, phone_number, resident_registration_number, term_of_service_agreement)";
+    $sql .= " VALUES ('$default_zip_code', '$default_adress', '$email', '$gender', '$ID', '$name', '$nickname', '$password', '$phone_number', '$resident_registration_number', '$term_of_service_agreement')";
+    
+    $ret = mysqli_query($con , $sql);
+?>
 <html>  
 <head>
   <meta charset="UTF-8">
-  <script>
-    function validateForm() {
-      var checkbox1 = document.getElementById("agree1");
-      var checkbox2 = document.getElementById("agree2");
-      var checkbox3 = document.getElementById("agree3");
-      if (!checkbox1.checked || !checkbox2.checked || !checkbox3.checked ) {
-        alert("필수 약관에 대해 동의해야 다음 서비스로 넘어갈수 있습니다.");
-        return false; // 폼 제출 방지
-      }
-      return true; // 폼 제출 허용
-    }
-
-    function checkPasswordMatch() {
-      var password = document.getElementById("password").value;
-      var confirmPassword = document.getElementById("confirm-password").value;
-
-      if (password !== confirmPassword) {
-        // 비밀번호 불일치 시 경고 메시지 표시
-        document.getElementById("password-match-message").innerHTML = "비밀번호가 일치하지 않습니다.";
-        return false;
-      } 
-
-      return true;
-    }
-  </script>
 </head>
 <header>
   <title>signup page</title>
@@ -112,26 +107,17 @@
     <div>
       <!--디폴트 메뉴-->
     
-      <input id="tab2" type="radio" name="tabs" checked disabled/>
+      <input id="tab2" type="radio" name="tabs"  disabled/>
       <label for="tab2"><br>STEP 1<br>약관동의</label>
 
       <input id="tab3" type="radio" name="tabs" disabled/>
       <label for="tab3"><br>STEP 2<br>정보입력</label>
 
-      <input id="tab4" type="radio" name="tabs" disabled/>
+      <input id="tab4" type="radio" name="tabs" checked disabled/>
       <label for="tab4"><br>STEP 3<br>가입완료</label>
 
      
 
-      <section id="content2">
-        <label><input type="checkbox" id="agree1">　회원 이용 약관 (필수)　〉</label><br>
-        <label><input type="checkbox" id="agree2">　개인정보 처리방침 (필수)　〉</label><br>
-        <label><input type="checkbox" id="agree3">　개인정보 수집 및 이용 (필수)　〉</label><br>
-        <label><input type="checkbox">　이메일 마케팅 수신 동의 (선택)</label><br>
-        <label><input type="checkbox">　SMS 마케팅 수신 동의 (선택)</label><br>
-        <p>정보수신에 동의하지 않아도 정상적인 서비스 이용이 가능합니다. 거래 정보, 결제/교환/환불 등과 관련된 내용은 거래 안전을 위하여 수신동의 여부와 관계없이 발송됩니다.</p>
-        <button onclick="nextStep()">다음으로</button>
-      </section>
 
       <section id="content3"> 
         <h5>필수 입력 정보</h5>
@@ -140,17 +126,17 @@
           <div>
             <p>아이디</p><br>
             <p>비밀번호</p>
-            <p>비밀번호 확인</p><br><br>
+            <p>비밀번호 확인</p><br>
             <p>성별</p>
             <p>이름</p>
-            <p>닉네임</p><br>
-            <p>생년월일(6자리)</p>
+            <p>닉네임</p>
+            <p>생년월일</p>
             <p>휴대전화</p>
           </div>
 
         <form method="post" action="signup_result.php">
           <div>
-            <input type="ID" name="ID" placeholder="아이디 입력" required>  
+            <input type="ID" name="ID" placeholder="아이디 입력">  
             <br>
             <button>중복확인</button><br>
             <input type="password" name="password" placeholder="영문, 숫자 조합 6~12자" required><br><br>
@@ -159,12 +145,11 @@
               <option value="man">남성</option>
               <option value="woman">여성</option>
             </select><br><br>
-            <input type="text" name="name" placeholder="이름을 입력하세요." required><br><br>
-            <input type="text" name="nickname" placeholder="닉네임을 입력하세요." required><br><br>
+            <input type="text" name="name" placeholder="이름을 입력하세요."><br><br>
+            <input type="text" name="nickname" placeholder="닉네임을 입력하세요."><br><br>
+            <input type="text" name="resident_registration_number" placeholder="예) 200904"><br><br>
+            <input type="tel" name="phone_number" placeholder="예) 01012341375"><br>
             <button>중복확인</button>
-            <input type="text" name="resident_registration_number" placeholder="예) 230605" required><br><br>
-            <input type="tel" name="phone_number" placeholder="예) 01012341375" required><br>
-            <button>번호인증</button>
           </div>
         </div>
         <hr>
@@ -178,11 +163,11 @@
             </div>
 
             <div>
-              <input type="address" name="default_zip_code" placeholder="우편번호" required>
-              <input type="address" name="default_address" placeholder="도로명주소" required><br>
+              <input type="address" name="default_zip_code" placeholder="우편번호">
+              <input type="address" name="default_address" placeholder="도로명주소"><br>
               <input type="address" placeholder="상세주소"><br>
               <br>
-              <input type="text" name="email" placeholder="emample@email.com" required>
+              <input type="text" name="email" placeholder="emample@email.com">
             </div>
           </div>
         </div>
