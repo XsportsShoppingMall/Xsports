@@ -15,24 +15,18 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <!--default style-->
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-          <!--side bar style-->
-          <link href="css/sidebars.css" rel="stylesheet">
           <!--modal style-->
           <link href="css/modals.css" rel="stylesheet">
           <style>
-               .modal-overlay {
+               #modal-overlay {
                position: fixed;
                top: 0;
                left: 0;
                width: 100%;
                height: 100%;
                background-color: rgba(0, 0, 0, 0.5);
-               display: none;
-               z-index: 9999;
-               }
-          
-               .modal-overlay.show {
                display: block;
+               z-index: 9999;
                }
 
           </style>
@@ -136,9 +130,13 @@
                     </a>
                     </ul>
                     <!--searchBar 5c ~ 8c-->
-                    <form class="col-4" role="search"> 
-                    <input type="search" class="form-control" placeholder="제품 검색" aria-label="Search">
+                    <form class="col-4" role="search">
+                         <div class="input-group">
+                              <input type="search" class="form-control" placeholder="제품 검색" aria-label="Search" id="search-input">
+                              <button type="button" class="btn btn-outline-secondary" id="search-button">검색</button>
+                         </div>
                     </form>
+
                     <!--공백 9c ~ 10c-->
                     <div class="col-2"></div>
                     <div class="col-1" >
@@ -148,20 +146,20 @@
                                    <svg class="bi pe-none me-2" width="32" height="32" class="rounded-circle"><use xlink:href="#my page"/></svg>
                               </a>
                               <ul class="dropdown-menu text-small">
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="cart.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
                                    장바구니
                                    </a></li>
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="favorite.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#favorite"/></svg>
                                    찜목록
                                    </a></li>
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="order_history.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#order-history"/></svg>
                                    주문내역
                                    </a></li>
                                    <li><hr class="dropdown-divider"></li>
-                                   <li><a class="dropdown-item" href="#">
+                                   <li><a class="dropdown-item" href="mypage.html">
                                         <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#my page"/></svg>
                                    내 정보
                                    </a></li>  
@@ -179,11 +177,7 @@
                               </a>
                           </button>
                     </div>
-                    <!--login button js-->
-                    <script src="js/check_login.js"></script>
-                    <script>
-                         checkLoginStatus('loginButton');
-                    </script>
+                    
                </div>
           </div>
                
@@ -197,38 +191,158 @@
                               </div>
                               <ul class="list-unstyled ps-0">
                                    <li class="mb-1">
-                                   <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category1-collapse" aria-expanded="false">
-                                        represent_prouct.category1
-                                   </button>
-                                   <div class="collapse" id="category1-collapse" style="">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category1-1</a></li>
-                                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category1-2</a></li>
-                                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category1-3</a></li>
-                                        </ul>
-                                   </div>
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category1-collapse" aria-expanded="false">
+                                             축구/풋살용품
+                                        </button>
+                                        <div class="collapse" id="category1-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                  <li><button category="32" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       축구공
+                                                  </button></li>
+                                                  <li><button category="64" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       축구용품
+                                                  </button></li>
+                                                  <li><button category="84" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       풋살용품
+                                                  </button></li>
+                                                  <li><button category="99" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       축구골대
+                                                  </button></li>
+                                                  <li><button category="104" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       풋살골대
+                                                  </button></li>
+                                             </ul>
+                                        </div>
                                    </li>
                                    <li class="mb-1">
                                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category2-collapse" aria-expanded="false">
-                                             represent_prouct.category2
+                                             족구용품
                                         </button>
                                         <div class="collapse" id="category2-collapse" style="">
                                              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category2-1</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category2-2</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category2-3</a></li>
+                                             <li><button category="35" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  족구공
+                                             </button></li>
+                                             <li><button category="68" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  족구용품
+                                             </button></li>
+                                             <li><button category="97" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  족구지주대
+                                             </button></li>
                                              </ul>
                                         </div>
                                    </li>
                                    <li class="mb-1">
                                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category3-collapse" aria-expanded="false">
-                                             represent_prouct.category3
+                                             야구용품
                                         </button>
                                         <div class="collapse" id="category3-collapse" style="">
                                              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category3-1</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category3-2</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category3-3</a></li>
+                                             <li><button category="73" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  야구공
+                                             </button></li>
+                                             <li><button category="74" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  야구글러브
+                                             </button></li>
+                                             <li><button category="75" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  야구용품
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category4-collapse" aria-expanded="false">
+                                             농구용품
+                                        </button>
+                                        <div class="collapse" id="category4-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="69" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  농구공
+                                             </button></li>
+                                             <li><button category="70" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  농구용품
+                                             </button></li>
+                                             <li><button category="101" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  농구대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category5-collapse" aria-expanded="false">
+                                             배구용품
+                                        </button>
+                                        <div class="collapse" id="category5-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="71" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배구공
+                                             </button></li>
+                                             <li><button category="72" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배구용품
+                                             </button></li>
+                                             <li><button category="102" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배구지주대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category6-collapse" aria-expanded="false">
+                                             배드민턴
+                                        </button>
+                                        <div class="collapse" id="category6-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="65" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배드민턴 라켓
+                                             </button></li>
+                                             <li><button category="66" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  셔틀콕
+                                             </button></li>
+                                             <li><button category="98" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배드민턴 지주대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category7-collapse" aria-expanded="false">
+                                             탁구용품
+                                        </button>
+                                        <div class="collapse" id="category7-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="78" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구공
+                                             </button></li>
+                                             <li><button category="76" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구라켓
+                                             </button></li>
+                                             <li><button category="215" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구복
+                                             </button></li>
+                                             <li><button category="216" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구화
+                                             </button></li>
+                                             <li><button category="77" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category8-collapse" aria-expanded="false">
+                                             기타
+                                        </button>
+                                        <div class="collapse" id="category8-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">   
+                                             <li><button category="81" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  헬스용품
+                                             </button></li>
+                                             <li><button category="82" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  요가용품
+                                             </button></li>
+                                             <li><button category="29" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  학교체육용품
+                                             </button></li>
                                              </ul>
                                         </div>
                                    </li>
@@ -251,12 +365,12 @@
                     <!--products box-->
                     <div class="col-9">
                          <!-- 장바구니 Modal -->
-                         <div class="modal-overlay">
+                         <div class="d-none" id="modal-overlay">
                               <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="cartModal">
                                    <div class="modal-dialog " role="document">
                                         <div class="modal-content rounded-4 shadow position-fixed top-50 start-50 translate-middle" style="width: 35%;">
                                              <div class="modal-header p-5 pb-4 border-bottom-0">
-                                                  <h1 class="fw-bold mb-0 fs-2">product.name</h1>
+                                                  <h1 class="fw-bold mb-0 fs-2" id = "productName">product.name</h1>
                                                   <button type="button" class="btn-close closeCartModal" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                    
@@ -264,57 +378,82 @@
                                              <form class="">
                                              <!--제품 사진-->
                                              <div class="form-floating mb-3">
-                                                  <svg class="bd-placeholder-img card-img-top" width="100%" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                                       <rect width="100%" height="100%" fill="#55595c" />
-                                                       <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                                  </svg>
+                                                  <img src = "#" class="bd-placeholder-img card-img-top" id = "modalProductImg" width="100%" height="550" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
                                              </div>
                                              <!--옵션 선택-->
-                                             <div class="input-group mb-3">
-                                                  <label class="input-group-text" for="inputGroupSelect01">색상</label>
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                       <option selected>옵션을 골라주세요</option>
-                                                       <option value="1">One</option>
-                                                       <option value="2">Two</option>
-                                                       <option value="3">Three</option>
-                                                  </select>
-                                             </div>
-                                             <div class="input-group mb-3">
-                                                  <label class="input-group-text" for="inputGroupSelect01">크기</label>
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                       <option selected>옵션을 골라주세요</option>
-                                                       <option value="1">One</option>
-                                                       <option value="2">Two</option>
-                                                       <option value="3">Three</option>
-                                                  </select>
-                                             </div>
-                                             <div class="input-group mb-3">
-                                                  <label class="input-group-text" for="inputGroupSelect01">옵션</label>
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                       <option selected>옵션을 골라주세요</option>
-                                                       <option value="1">One</option>
-                                                       <option value="2">Two</option>
-                                                       <option value="3">Three</option>
-                                                  </select>
+                                             <div id="optionBox">
+                                                  <div id = "colorOptionbox">
+                                                       <div class="input-group mb-3">
+                                                            <label class="input-group-text" for="colorOption">색상</label>
+                                                            <select class="form-select" id="colorOption">
+                                                                 <option selected>옵션을 골라주세요</option>
+                                                                 <option value="1">One</option>
+                                                                 <option value="2">Two</option>
+                                                                 <option value="3">Three</option>
+                              
+                                                            </select>
+                                                       </div>
+                                                  </div>
+                                          
+                                                  <div id = "sizeOptionbox">
+                                                       <div class="input-group mb-3">
+                                                            <label class="input-group-text" for="sizeOption">크기</label>
+                                                            <select class="form-select" id="sizeOption">
+                                                                 <option selected>옵션을 골라주세요</option>
+                                                                 <option value="1">One</option>
+                                                                 <option value="2">Two</option>
+                                                                 <option value="3">Three</option>
+                                                            </select>
+                                                       </div> 
+                                                  </div>
+                                                  
+                                                  <div id = "other_optionOptionbox">
+                                                       <div class="input-group mb-3">
+                                                            <label class="input-group-text" for="other_optionOption">옵션</label>
+                                                            <select class="form-select" id="other_optionOption">
+                                                                 <option selected>옵션을 골라주세요</option>
+                                                                 <option value="1">One</option>
+                                                                 <option value="2">Two</option>
+                                                                 <option value="3">Three</option>
+                                                            </select>
+                                                       </div>
+                                                  </div>
                                              </div>
                                              <!--갯수 조절 입력창, 버튼-->
                                              <div class="input-group mb-3">
-                                                  <input type="text" id = "productsNumbers" class="form-control text-end" placeholder="상품 개수" aria-label="상품 개수" value="1">
+                                                  <input type="text" id = "modalProductNumbers" class="form-control text-end" placeholder="상품 개수" aria-label="상품 개수" value="1">
                                                   <span class="input-group-text text-secondary me-3">개</span>
                                                        
                                                   <div class="input-group-append">
-                                                       <span class="input-group-text rounded-top-0 cursor-pointer increment-btn" onclick="incrementNumber()">
+                                                       <button type="button" class="input-group-text rounded-top-0 cursor-pointer" id="increment-btn">
                                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#up"/></svg>
                                                        </span>
-                                                       <span class="input-group-text rounded-bottom-0 cursor-pointer decrement-btn" onclick="decrementNumber()">
+                                                       <button type="button" class="input-group-text rounded-bottom-0 cursor-pointer" id="decrement-btn">
                                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#down"/></svg>
                                                        </span>
                                                   </div>
-                                                  <div class="col-3 input-group-text button-group text-end text-secondary fs-5 fw-bold ms-3 me-3 rounded">10,000원</div>
-                                                       <button type="button" class="btn btn-sm btn-outline-secondary">
+                                                  <div class="col-3 input-group-text button-group text-end text-secondary fs-5 fw-bold ms-3 me-3 rounded" id = "modalProductsPrice">옵션 선택</div>
+                                                       <button type="button" class="btn btn-sm btn-outline-secondary" id="add-cart" data-bs-toggle="modal" data-bs-target="#add-cart-complete">
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
                                                             장바구니 담기
                                                        </button>
+                                                       <div class="modal fade" height="50%" id="add-cart-complete" tabindex="-1" aria-labelledby="completeLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                              <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                  <h5 class="modal-title ms-5" id="completeLabel">장바구니에 추가되었습니다.</h5>
+                                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                 </div>
+                                                                 <div class="modal-body text-center">
+                                                                 지금 확인 하시겠습니까?   
+                                                                 </div>
+                                                                <div class="modal-footer d-flex justify-content-center">
+                                                                  <a class="btn btn-secondary" href="cart.html">장바구니로 이동</a>
+                                                                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">쇼핑 계속하기</button>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
                                                        <button type="button" class="btn btn-sm btn-outline-secondary">
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#payment"/></svg>
                                                             바로 결제
@@ -334,7 +473,7 @@
                             <div class="row">
                                 <!--제품 사진-->
                                 <div class="col-4 position-relative">
-                                    <a href="more_information.html">
+                                    <a href="#">
                                         <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
                                    </a>
                                     <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-4">
@@ -344,15 +483,14 @@
                                 <!--제품 설명-->
                                 <div class="col-8 d-flex align-items-stretch">
                                     <div class="card-body">
-                                        <p class="card-text">product.name</p>
-                                        <p class="card-text">4,000원</p>
+                                        <p class="card-text" id = "productName">product.name</p>
+                                        <p class="card-text" id = "price">4,000원</p>
                                         
                                         <button type="button" class="btn btn-sm btn-outline-secondary openCartModal position-absolute end-0 bottom-0 me-3 mb-3 align-self-end">
                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
                                             장바구니 넣기
                                         </button>
                                         <script>
-                                             checkLoginStatus('cart');
                                         </script>
                                     </div>
                                 </div>
@@ -585,55 +723,14 @@
                     });
                 });
             </script>
-            <!--favorite js-->
-            <script>
-                const favoriteButtons = document.querySelectorAll('.favorite-button');
-                
-                favoriteButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                    button.classList.toggle('btn-outline-danger');
-                    });
-                });
-            </script>
-            <!--cart modal js-->
-            <script>
-                // Get the button element to open the modal
-                const openModalButton = document.querySelectorAll('.openCartModal');
-                const closeModalButton = document.querySelector('.closeCartModal');
-                // Get the modal element
-                const modalOverlay = document.querySelector('.modal-overlay');
-                
-                // Attach event listener to the button
-
-                openModalButton.forEach(button => {
-                button.addEventListener('click', () => {
-                        modalOverlay.classList.add('show');
-                        }); 
-                });
-
-                closeModalButton.addEventListener('click',() => {
-                        modalOverlay.classList.remove('show');
-                });
-
-                var inputNumber = document.getElementById('productsNumbers');
-
-                const incrementButton = document.querySelector(".increment-btn");
-                const decrementButton = document.querySelector(".decrement-btn");
-                
-                incrementButton.addEventListener("click", () => {
-                        var currentValue = parseInt(inputNumber.value);
-                        inputNumber.value = currentValue + 1;
-                });
-                
-                decrementButton.addEventListener("click", () => {
-                        var currentValue = parseInt(inputNumber.value);
-                        if (currentValue > 0) {
-                        inputNumber.value = currentValue - 1;
-                        }
-                });
-                
             
-            </script>
+            <!--login check js-->
+          <script src="js/check_login.js"></script>
+
+          <!--login button js-->
+          <script>
+               checkLoginStatus('loginButton');
+          </script>
             
             <!--star rate js-->
             <script>
@@ -682,14 +779,21 @@
                   });
                 }
             </script>
+
+
             
-            <!--profile js-->
+            
+               <!--profile js-->
            
                 
                <!--default js-->
                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-               
+               <!--sidebar js-->
+               <script src="js/sidebars.js"></script>
+               <script src="js/product_display.js"></script>
+               <script src="js/cart_modal.js"></script>
+               <script src="js/more_information.js"></script>
      </body>
 
 
