@@ -4,3 +4,6 @@ ENV MYSQL_ROOT_PASSWORD example
 ENV MYSQL_DATABASE XsportsShoppingMalldb
 
 # COPY init.sql /docker-entrypoint-initdb.d/
+# RUN chmod 644 /etc/mysql/conf.d/my.ini
+# ADD my.ini /etc/mysql/conf.d/my.ini
+

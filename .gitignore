@@ -14,3 +14,5 @@ db_data/ibdata1
 db_data/undo_001
 db_data/undo_002
 db_data/binlog.index
+db_data/#innodb_redo
+db_data/binlog.******

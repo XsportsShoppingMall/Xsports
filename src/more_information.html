@@ -8,7 +8,7 @@
 <html> 
 
       <head>
-          <title>main page</title>
+          <title>more info</title>
           <!--for korean--> 
           <meta http-equiv="Content-Type" content="text/html; charset = utf-8" />
           <!--for mobile-->
@@ -114,12 +114,12 @@
                <symbol id="payment" viewBox="0 0 16 16">
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z"/>
                </symbol>
-               <symbol id="more" viewBox="0 0 16 16">
-                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-            </symbol>
-            <symbol id="scroll-to-top" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
-            </symbol>
+               <symbol id="login" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+                    <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+               </symbol>
+               
+
                
           </svg>
           <div class="container">
@@ -136,42 +136,56 @@
                     </a>
                     </ul>
                     <!--searchBar 5c ~ 8c-->
-                    <form class="col-4" role="search">
+                    <form class="col-4" role="search"> 
                     <input type="search" class="form-control" placeholder="제품 검색" aria-label="Search">
                     </form>
-                    <!--공백 9c ~ 11c-->
-                    <div class="col-3"></div>
-                    <!--profile 12c-->
-                    <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                         <svg class="bi pe-none me-2" width="32" height="32" class="rounded-circle"><use xlink:href="#my page"/></svg>
-                    </a>
-                    <ul class="dropdown-menu text-small">
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
-                         장바구니
-                         </a></li>
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#favorite"/></svg>
-                         찜목록
-                         </a></li>
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#order-history"/></svg>
-                         주문내역
-                         </a></li>
-                         <li><hr class="dropdown-divider"></li>
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#my page"/></svg>
-                         내 정보
-                         </a></li>  
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#log-out"/></svg>
-                         로그아웃</a>
-                         </li>
-                    </ul>
+                    <!--공백 9c ~ 10c-->
+                    <div class="col-2"></div>
+                    <div class="col-1" >
+                         <!--loged in profile 12c-->
+                         <div class="dropdown text-end d-none" id = "profileDropdown">
+                              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                   <svg class="bi pe-none me-2" width="32" height="32" class="rounded-circle"><use xlink:href="#my page"/></svg>
+                              </a>
+                              <ul class="dropdown-menu text-small">
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
+                                   장바구니
+                                   </a></li>
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#favorite"/></svg>
+                                   찜목록
+                                   </a></li>
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#order-history"/></svg>
+                                   주문내역
+                                   </a></li>
+                                   <li><hr class="dropdown-divider"></li>
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#my page"/></svg>
+                                   내 정보
+                                   </a></li>  
+                                   <li><a class="dropdown-item" href="php/logout.php">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#log-out"/></svg>
+                                   로그아웃</a>
+                                   </li>
+                              </ul>
+                         </div>
+                         <!--loged out profile 12c-->
+                         <button type="button" class="btn btn-light d-flex align-items-center justify-content-center d-none" id = "loginButton">
+                              <a href="login.html" class="d-flex align-items-center fw-bold text-secondary  text-decoration-none">
+                                  <svg class="bi pe-none me-1" width="16" height="16"><use xlink:href="#login"></use></svg>
+                                  <p class="text m-0">로그인</p>
+                              </a>
+                          </button>
                     </div>
-          </div>
+                    <!--login button js-->
+                    <script src="js/check_login.js"></script>
+                    <script>
+                         checkLoginStatus('loginButton');
+                    </script>
                </div>
+          </div>
                
                <!--main-->
                <div class=" row">
@@ -313,7 +327,6 @@
                               </div>
                          </div>
                          <!--products-->
-                         <!--최신순, 인기순, 가격순 정렬 버튼-->
                          <div class="row">
                             <div class = "col-9"><!--공백--></div>
                         </div>
@@ -338,6 +351,9 @@
                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
                                             장바구니 넣기
                                         </button>
+                                        <script>
+                                             checkLoginStatus('cart');
+                                        </script>
                                     </div>
                                 </div>
                             </div>  
@@ -396,7 +412,7 @@
                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
                                         </small>
-                                        <button href="#" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
                                     </p>
                                     <div class="row d-flex justify-content-start">
                                         <p class = "col-3 card-text">writerID</p>
@@ -407,85 +423,86 @@
                                 </div>
                               </div>
                               <div class="card">
-                                <div class="card-body">
-                                    <p class="d-flex justify-content-between card-text">
-                                        <small class="d-flex justify-content-start text-body-secondary">
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                        </small>
-                                        <button href="#" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
-                                    </p>
-                                    <div class="row d-flex justify-content-start">
-                                        <p class = "col-3 card-text">writerID</p>
-                                        <p class = "col-9 card-text review-content lh-30">review.content<br>review.content<br>review.content<br></p>
-                                        
-                                    </div>
-                                    
-                                </div>
+                                   <div class="card-body">
+                                       <p class="d-flex justify-content-between card-text">
+                                           <small class="d-flex justify-content-start text-body-secondary">
+                                               <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                               <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                               <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                               <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                               <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
+                                           </small>
+                                           <button type="button" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
+                                       </p>
+                                       <div class="row d-flex justify-content-start">
+                                           <p class = "col-3 card-text">writerID</p>
+                                           <p class = "col-9 card-text review-content lh-30">review.content<br>review.content<br>review.content<br></p>
+                                           
+                                       </div>
+                                       
+                                   </div>
                               </div>
                               <div class="card">
-                                <div class="card-body">
-                                    <p class="d-flex justify-content-between card-text">
+                              <div class="card-body">
+                                   <p class="d-flex justify-content-between card-text">
                                         <small class="d-flex justify-content-start text-body-secondary">
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
                                         </small>
-                                        <button href="#" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
-                                    </p>
-                                    <div class="row d-flex justify-content-start">
+                                        <button type="button" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
+                                   </p>
+                                   <div class="row d-flex justify-content-start">
                                         <p class = "col-3 card-text">writerID</p>
                                         <p class = "col-9 card-text review-content lh-30">review.content<br>review.content<br>review.content<br></p>
                                         
-                                    </div>
-                                    
-                                </div>
+                                   </div>
+                                   
+                              </div>
                               </div>
                               <div class="card">
-                                <div class="card-body">
-                                    <p class="d-flex justify-content-between card-text">
+                              <div class="card-body">
+                                   <p class="d-flex justify-content-between card-text">
                                         <small class="d-flex justify-content-start text-body-secondary">
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
                                         </small>
-                                        <button href="#" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
-                                    </p>
-                                    <div class="row d-flex justify-content-start">
+                                        <button type="button" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
+                                   </p>
+                                   <div class="row d-flex justify-content-start">
                                         <p class = "col-3 card-text">writerID</p>
                                         <p class = "col-9 card-text review-content lh-30">review.content<br>review.content<br>review.content<br></p>
                                         
-                                    </div>
-                                    
-                                </div>
+                                   </div>
+                                   
+                              </div>
                               </div>
                               <div class="card">
-                                <div class="card-body">
-                                    <p class="d-flex justify-content-between card-text">
+                              <div class="card-body">
+                                   <p class="d-flex justify-content-between card-text">
                                         <small class="d-flex justify-content-start text-body-secondary">
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                            <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
+                                             <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
                                         </small>
-                                        <button href="#" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
-                                    </p>
-                                    <div class="row d-flex justify-content-start">
+                                        <button type="button" class="btn btn-outline-danger btn-sm card-link review-report-btn" data-bs-toggle="modal" data-bs-target="#reportModal">리뷰 신고</button>
+                                   </p>
+                                   <div class="row d-flex justify-content-start">
                                         <p class = "col-3 card-text">writerID</p>
                                         <p class = "col-9 card-text review-content lh-30">review.content<br>review.content<br>review.content<br></p>
                                         
-                                    </div>
-                                    
-                                </div>
+                                   </div>
+                                   
                               </div>
+                              </div>
+                                 
 
                             <!--pagenation-->
                             <div class="m-4 row">
@@ -666,12 +683,13 @@
                 }
             </script>
             
+            <!--profile js-->
+           
                 
-          <!--default js-->
-          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-          <!--sidebar js-->
-          <script src="js/sidebar.js"></script>
+               <!--default js-->
+               <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+               <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+               
      </body>
 
 

@@ -1,8 +1,13 @@
 {
-    "name": "My Project",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "web",
-    "workspaceFolder": "/var/www/html",
-    "shutdownAction": "stopCompose",
-    "extensions": ["felixfbecker.php-intellisense"]
-  }
+  "name": "My Project",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/var/www/html",
+  "shutdownAction": "stopCompose",
+   "containerEnv": {
+    "PHP_INI_SCAN_DIR": "/var/www/html/.devcontainer"
+   }
+  //  "mounts": [
+  //   "source=/etc/my.ini,target=/var/www/html/etc/mysql/my.ini,type=bind"
+  // ]
+}
