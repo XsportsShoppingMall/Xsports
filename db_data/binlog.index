@@ -23,6 +23,8 @@
 ./binlog.000022
 ./binlog.000023
 ./binlog.000024
+<<<<<<< HEAD
+=======
 ./binlog.000025
 ./binlog.000026
 ./binlog.000027
@@ -62,3 +64,5 @@
 ./binlog.000061
 ./binlog.000062
 ./binlog.000063
+./binlog.000064
+>>>>>>> 4afb4d0d8f61f8ea4948d7f5225a0b859ec25031

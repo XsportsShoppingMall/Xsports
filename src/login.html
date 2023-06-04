@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,18 +16,18 @@
         <a href="index.html"><img src="../img/Xsports.png" alt = "메인그림"></a>
     </div>
     <br><br>
-    <form>
+    <form method="post" action="php/login.php">
         <div class="form-group">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디">
+          <input type="username" class="form-control" name="username" id="exampleInputEmail1"  placeholder="아이디">
         </div>
  
         <div class="form-group">
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호">
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="비밀번호">
         </div>
  
         <div class="login-button">
-        <div button type="login" class="btn btn-primary">로그인</button>
-        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+        </button>
     </div>
     <div class="form-check">
         <div>
@@ -44,5 +46,35 @@
             <a href = "signup.html">회원가입</a>
         </div>
     </footer>
+    <script>
+        // 페이지 로드 시 실행되는 함수
+    window.onload = function() {
+        // 로그인 상태 체크
+        var userId = sessionStorage.getItem('user_id');
+        if (userId) {
+            // 이미 로그인된 상태이므로 index 페이지로 리다이렉트
+            window.location.href = 'index.html';
+        }
+    };
+    </script>
+
+    <script>
+        function login() {
+            // 로그인 처리 로직 수행
+            // ...
+        
+            // 예시: 세션 ID를 가져와서 서버에 전송
+            var sessionId = sessionStorage.getItem('session_id');
+            window.location.href = 'other_page.php?session_id=' + sessionId;
+        }
+        
+        function logout() {
+            // 로그아웃 처리 로직 수행
+            // ...
+        
+            // 예시: 세션 ID 제거
+            sessionStorage.removeItem('session_id');
+        }
+        </script>
 </body>
 </html>

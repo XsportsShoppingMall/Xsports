@@ -20,19 +20,15 @@
           <!--modal style-->
           <link href="css/modals.css" rel="stylesheet">
           <style>
-               .modal-overlay {
+               #modal-overlay {
                position: fixed;
                top: 0;
                left: 0;
                width: 100%;
                height: 100%;
                background-color: rgba(0, 0, 0, 0.5);
-               display: none;
-               z-index: 9999;
-               }
-          
-               .modal-overlay.show {
                display: block;
+               z-index: 9999;
                }
 
           </style>
@@ -92,6 +88,10 @@
                <symbol id="payment" viewBox="0 0 16 16">
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7H0zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1z"/>
                </symbol>
+               <symbol id="login" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+                    <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+               </symbol>
                
           </svg>
           <div class="container">
@@ -108,42 +108,56 @@
                     </a>
                     </ul>
                     <!--searchBar 5c ~ 8c-->
-                    <form class="col-4" role="search"> 
-                    <input type="search" class="form-control" placeholder="제품 검색" aria-label="Search">
+                    <form class="col-4" role="search">
+                         <div class="input-group">
+                              <input type="search" class="form-control" placeholder="제품 검색" aria-label="Search" id="search-input">
+                              <button type="button" class="btn btn-outline-secondary" id="search-button">검색</button>
+                         </div>
                     </form>
-                    <!--공백 9c ~ 11c-->
-                    <div class="col-3"></div>
-                    <!--profile 12c-->
-                    <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                         <svg class="bi pe-none me-2" width="32" height="32" class="rounded-circle"><use xlink:href="#my page"/></svg>
-                    </a>
-                    <ul class="dropdown-menu text-small">
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
-                         장바구니
-                         </a></li>
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#favorite"/></svg>
-                         찜목록
-                         </a></li>
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#order-history"/></svg>
-                         주문내역
-                         </a></li>
-                         <li><hr class="dropdown-divider"></li>
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#my page"/></svg>
-                         내 정보
-                         </a></li>  
-                         <li><a class="dropdown-item" href="#">
-                              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#log-out"/></svg>
-                         로그아웃</a>
-                         </li>
-                    </ul>
+
+                    <!--공백 9c ~ 10c-->
+                    <div class="col-2"></div>
+                    <div class="col-1" >
+                         <!--loged in profile 12c-->
+                         <div class="dropdown text-end d-none" id = "profileDropdown">
+                              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                   <svg class="bi pe-none me-2" width="32" height="32" class="rounded-circle"><use xlink:href="#my page"/></svg>
+                              </a>
+                              <ul class="dropdown-menu text-small">
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
+                                   장바구니
+                                   </a></li>
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#favorite"/></svg>
+                                   찜목록
+                                   </a></li>
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#order-history"/></svg>
+                                   주문내역
+                                   </a></li>
+                                   <li><hr class="dropdown-divider"></li>
+                                   <li><a class="dropdown-item" href="#">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#my page"/></svg>
+                                   내 정보
+                                   </a></li>  
+                                   <li><a class="dropdown-item" href="php/logout.php">
+                                        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#log-out"/></svg>
+                                   로그아웃</a>
+                                   </li>
+                              </ul>
+                         </div>
+                         <!--loged out profile 12c-->
+                         <button type="button" class="btn btn-light d-flex align-items-center justify-content-center d-none" id = "loginButton">
+                              <a href="login.html" class="d-flex align-items-center fw-bold text-secondary  text-decoration-none">
+                                  <svg class="bi pe-none me-1" width="16" height="16"><use xlink:href="#login"></use></svg>
+                                  <p class="text m-0">로그인</p>
+                              </a>
+                          </button>
                     </div>
-          </div>
+                    
                </div>
+          </div>
                
                <!--main-->
                <div class=" row">
@@ -155,38 +169,158 @@
                               </div>
                               <ul class="list-unstyled ps-0">
                                    <li class="mb-1">
-                                   <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category1-collapse" aria-expanded="false">
-                                        represent_prouct.category1
-                                   </button>
-                                   <div class="collapse" id="category1-collapse" style="">
-                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category1-1</a></li>
-                                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category1-2</a></li>
-                                        <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category1-3</a></li>
-                                        </ul>
-                                   </div>
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category1-collapse" aria-expanded="false">
+                                             축구/풋살용품
+                                        </button>
+                                        <div class="collapse" id="category1-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                                  <li><button category="32" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       축구공
+                                                  </button></li>
+                                                  <li><button category="64" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       축구용품
+                                                  </button></li>
+                                                  <li><button category="84" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       풋살용품
+                                                  </button></li>
+                                                  <li><button category="99" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       축구골대
+                                                  </button></li>
+                                                  <li><button category="104" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                       풋살골대
+                                                  </button></li>
+                                             </ul>
+                                        </div>
                                    </li>
                                    <li class="mb-1">
                                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category2-collapse" aria-expanded="false">
-                                             represent_prouct.category2
+                                             족구용품
                                         </button>
                                         <div class="collapse" id="category2-collapse" style="">
                                              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category2-1</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category2-2</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category2-3</a></li>
+                                             <li><button category="35" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  족구공
+                                             </button></li>
+                                             <li><button category="68" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  족구용품
+                                             </button></li>
+                                             <li><button category="97" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  족구지주대
+                                             </button></li>
                                              </ul>
                                         </div>
                                    </li>
                                    <li class="mb-1">
                                         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category3-collapse" aria-expanded="false">
-                                             represent_prouct.category3
+                                             야구용품
                                         </button>
                                         <div class="collapse" id="category3-collapse" style="">
                                              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category3-1</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category3-2</a></li>
-                                             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">category3-3</a></li>
+                                             <li><button category="73" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  야구공
+                                             </button></li>
+                                             <li><button category="74" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  야구글러브
+                                             </button></li>
+                                             <li><button category="75" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  야구용품
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category4-collapse" aria-expanded="false">
+                                             농구용품
+                                        </button>
+                                        <div class="collapse" id="category4-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="69" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  농구공
+                                             </button></li>
+                                             <li><button category="70" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  농구용품
+                                             </button></li>
+                                             <li><button category="101" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  농구대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category5-collapse" aria-expanded="false">
+                                             배구용품
+                                        </button>
+                                        <div class="collapse" id="category5-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="71" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배구공
+                                             </button></li>
+                                             <li><button category="72" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배구용품
+                                             </button></li>
+                                             <li><button category="102" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배구지주대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category6-collapse" aria-expanded="false">
+                                             배드민턴
+                                        </button>
+                                        <div class="collapse" id="category6-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="65" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배드민턴 라켓
+                                             </button></li>
+                                             <li><button category="66" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  셔틀콕
+                                             </button></li>
+                                             <li><button category="98" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  배드민턴 지주대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category7-collapse" aria-expanded="false">
+                                             탁구용품
+                                        </button>
+                                        <div class="collapse" id="category7-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                             <li><button category="78" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구공
+                                             </button></li>
+                                             <li><button category="76" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구라켓
+                                             </button></li>
+                                             <li><button category="215" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구복
+                                             </button></li>
+                                             <li><button category="216" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구화
+                                             </button></li>
+                                             <li><button category="77" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  탁구대
+                                             </button></li>
+                                             </ul>
+                                        </div>
+                                   </li>
+                                   <li class="mb-1">
+                                        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#category8-collapse" aria-expanded="false">
+                                             기타
+                                        </button>
+                                        <div class="collapse" id="category8-collapse" style="">
+                                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">   
+                                             <li><button category="81" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  헬스용품
+                                             </button></li>
+                                             <li><button category="82" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  요가용품
+                                             </button></li>
+                                             <li><button category="29" class="category btn btn-sm link-body-emphasis d-inline-flex text-decoration-none border-0 ms-4">
+                                                  학교체육용품
+                                             </button></li>
                                              </ul>
                                         </div>
                                    </li>
@@ -210,20 +344,27 @@
                     <div class="col-9">
                          <!--최신순, 인기순, 가격순 정렬 버튼-->
                          <div class="row">
-                              <div class = "col-9"><!--공백--></div>
+                              <div class="col-9"><!--공백--></div>
                               <ol class="col-3 breadcrumb p-3 bg-body-tertiary rounded-3">
-                                   <li class="breadcrumb-item"><a href="#">최신순</a></li>
-                                   <li class="breadcrumb-item"><a href="#">인기순</a></li>
-                                   <li class="breadcrumb-item active" aria-current="page">가격순</li>
+                                  <li class="breadcrumb-item active">
+                                      <button id="sort-views" type="button" class="btn border-0 p-0">인기순</button>
+                                  </li>
+                                  <li class="breadcrumb-item active">
+                                      <button id="sort-price" type="button" class="btn border-0 p-0">가격순</button>
+                                  </li>
+                                  <li class="breadcrumb-item active">
+                                      <button id="sort-add-date" type="button" class="btn border-0 p-0">최신순</button>
+                                  </li>
                               </ol>
-                         </div>
+                          </div>
+                          
                          <!-- 장바구니 Modal -->
-                         <div class="modal-overlay">
+                         <div class="d-none" id="modal-overlay">
                               <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="cartModal">
                                    <div class="modal-dialog " role="document">
                                         <div class="modal-content rounded-4 shadow position-fixed top-50 start-50 translate-middle" style="width: 35%;">
                                              <div class="modal-header p-5 pb-4 border-bottom-0">
-                                                  <h1 class="fw-bold mb-0 fs-2">product.name</h1>
+                                                  <h1 class="fw-bold mb-0 fs-2" id = "productName">product.name</h1>
                                                   <button type="button" class="btn-close closeCartModal" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                    
@@ -231,10 +372,7 @@
                                              <form class="">
                                              <!--제품 사진-->
                                              <div class="form-floating mb-3">
-                                                  <svg class="bd-placeholder-img card-img-top" width="100%" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                                       <rect width="100%" height="100%" fill="#55595c" />
-                                                       <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                                  </svg>
+                                                  <img class="bd-placeholder-img card-img-top product-image" width="100%" height="550" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
                                              </div>
                                              <!--옵션 선택-->
                                              <div class="input-group mb-3">
@@ -284,6 +422,9 @@
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#cart"/></svg>
                                                             장바구니 담기
                                                        </button>
+                                                       <!-- <script>
+                                                            checkLoginStatus('cart');
+                                                       </script> -->
                                                        <button type="button" class="btn btn-sm btn-outline-secondary">
                                                             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#payment"/></svg>
                                                             바로 결제
@@ -296,7 +437,7 @@
                               </div>
                          </div>
                          <!--products-->
-                         <div class="row row-cols-3 row-cols-sm-2 row-cols-md-3 g-3">
+                         <div id = "product-container"class="row row-cols-3 row-cols-sm-2 row-cols-md-3 g-3">
                               <div class="col">
                                    <div class="card shadow-sm">
                                         <div class="position-relative">
@@ -328,255 +469,6 @@
                                         </div>
                                    </div>
                               </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="card shadow-sm">
-                                        <div class="position-relative">
-                                             <a href="more_information.html">
-                                                  <img src="https://redsports.co.kr/web/product/medium/202302/e00a0e417f1034b399b353b14b9b07ca.jpg" class="bd-placeholder-img card-img-top" width="100%" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="true"> 
-                                             </a>
-                                             <button type="button" class="btn btn-sm btn-outline-secondary favorite-button position-absolute bottom-0 end-0 mb-2 me-2">
-                                                  <svg class="bi pe-none" width="16" height="16"><use xlink:href="#favorite" /></svg>
-                                             </button>
-                                             
-                                        </div>
-                                        <div class="card-body">
-                                             <p class="card-text">product.name</p>
-                                             <p class="card-text">4,000원</p>
-                                             <div class="d-flex justify-content-between align-items-center">
-                                                  <button type="button" class="btn btn-sm btn-outline-secondary openCartModal">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#cart"/></svg>
-                                                  </button>
-                                                  <small class="d-flex justify-content-end text-body-secondary">
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-fill"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star-half"/></svg>
-                                                       <svg class="bi pe-none" width="16" height="16"><use xlink:href="#star"/></svg>
-                                                       <small class="text-body-secondary">(366)</small>
-                                                  </small>
-                                                  
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              
                          </div>
                          <!--pagenation-->
                          <div class="m-4 row">
@@ -637,61 +529,21 @@
                  });
                });
           </script>
-          <!--favorite js-->
-          <script>
-               const favoriteButtons = document.querySelectorAll('.favorite-button');
-             
-               favoriteButtons.forEach(button => {
-                 button.addEventListener('click', () => {
-                   button.classList.toggle('btn-outline-danger');
-                 });
-               });
-          </script>
-          <!--cart modal js-->
-          <script>
-               // Get the button element to open the modal
-               const openModalButton = document.querySelectorAll('.openCartModal');
-               const closeModalButton = document.querySelector('.closeCartModal');
-               // Get the modal element
-               const modalOverlay = document.querySelector('.modal-overlay');
-             
-               // Attach event listener to the button
-
-               openModalButton.forEach(button => {
-               button.addEventListener('click', () => {
-                    modalOverlay.classList.add('show');
-                    }); 
-               });
-
-               closeModalButton.addEventListener('click',() => {
-                    modalOverlay.classList.remove('show');
-               });
-
-               var inputNumber = document.getElementById('productsNumbers');
-
-               const incrementButton = document.querySelector(".increment-btn");
-               const decrementButton = document.querySelector(".decrement-btn");
-               
-               incrementButton.addEventListener("click", () => {
-                    var currentValue = parseInt(inputNumber.value);
-                    inputNumber.value = currentValue + 1;
-               });
-               
-               decrementButton.addEventListener("click", () => {
-                    var currentValue = parseInt(inputNumber.value);
-                    if (currentValue > 0) {
-                    inputNumber.value = currentValue - 1;
-                    }
-               });
-               
           
+          <!--login check js-->
+          <script src="js/check_login.js"></script>
+
+          <!--login button js-->
+          <script>
+               checkLoginStatus('loginButton');
           </script>
           
           <!--default js-->
           <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
           <!--sidebar js-->
-          <script src="js/sidebar.js"></script>
+          <script src="js/sidebars.js"></script>
+          <script src="js/product_display.js"></script>
      </body>
 </html>
 
