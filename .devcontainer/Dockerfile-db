@@ -3,7 +3,12 @@ FROM mysql:8.0
 ENV MYSQL_ROOT_PASSWORD example
 ENV MYSQL_DATABASE XsportsShoppingMalldb
 
+
+
 # COPY init.sql /docker-entrypoint-initdb.d/
 # RUN chmod 644 /etc/mysql/conf.d/my.ini
 # ADD my.ini /etc/mysql/conf.d/my.ini
 
+
+# Docker 컨테이너가 실행될 때 실행될 명령을 설정합니다.
+CMD ["mysqld"]
