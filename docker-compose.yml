@@ -21,6 +21,6 @@ services:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_ROOT_HOST: "%"
       TZ: Asia/Seoul
-    # volumes:
-    # - ./db_data:/var/lib/mysql
+    volumes:
+    - ./db_data:/var/lib/mysql
     # - ../etc/mysql/my.ini:/etc/my.ini
