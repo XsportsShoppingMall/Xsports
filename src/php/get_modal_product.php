@@ -2,8 +2,8 @@
 // DB 연결 정보
 $host = 'db:3306';
 $dbname = 'XsportsShoppingMalldb';
-$username = 'cookUser';
-$password = '1234';
+$username = 'root';
+$password = 'example';
 
 // DB 연결
 $conn = new mysqli($host, $username, $password, $dbname);

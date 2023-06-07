@@ -10,8 +10,8 @@ $otherOption = $_POST['other_option'];
 // 데이터베이스 연결 및 쿼리 실행
 $host = 'db:3306';
 $dbname = 'XsportsShoppingMalldb';
-$username = 'cookUser';
-$password = '1234';
+$username = 'root';
+$password = 'example';
 
 // 데이터베이스 연결
 $conn = new mysqli($host, $username, $password, $dbname);

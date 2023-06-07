@@ -1,8 +1,8 @@
 <?php
 $host = 'db:3306';
 $db   = 'XsportsShoppingMalldb';
-$user = 'cookUser';
-$pass = '1234';
+$user = 'root';
+$pass = 'example';
 $charset = 'utf8mb4';
 $port = 3307;
 

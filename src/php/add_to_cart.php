@@ -2,8 +2,8 @@
 // 데이터베이스 연결 설정
 $host = 'db:3306';
 $dbname = 'XsportsShoppingMalldb';
-$username = 'cookUser';
-$password = '1234';
+$username = 'root';
+$password = 'example';
 
 // MySQL 연결 생성
 $conn = new mysqli($host, $username, $password, $dbname);

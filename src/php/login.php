@@ -21,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // MySQL 데이터베이스 연결 설정
     $servername = "db:3306";
-    $username_db = "cookUser"; // 본인의 MySQL 관리자 계정 이름
-    $password_db = "1234"; // 본인의 MySQL 관리자 계정 비밀번호
+    $username_db = "root"; // 본인의 MySQL 관리자 계정 이름
+    $password_db = "example"; // 본인의 MySQL 관리자 계정 비밀번호
     $database = 'XsportsShoppingMalldb'; // 사용자마다 독립적인 데이터베이스 계정 사용
 
     // MySQL 데이터베이스에 연결
