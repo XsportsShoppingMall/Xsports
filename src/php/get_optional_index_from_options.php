@@ -10,8 +10,8 @@ $otherOption = $_POST['other_option'];
 // 데이터베이스 연결 및 쿼리 실행
 $host = 'db:3306';
 $dbname = 'XsportsShoppingMalldb';
-$username = 'cookUser';
-$password = '1234';
+$username = 'root';
+$password = 'example';
 
 // 데이터베이스 연결
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -34,3 +34,5 @@ $conn->close();
 // 검색된 상품 정보를 JSON 형식으로 반환합니다.
 echo json_encode($product);
 ?>
+
+

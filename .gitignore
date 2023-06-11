@@ -16,3 +16,9 @@ db_data/undo_002
 db_data/binlog.index
 db_data/#innodb_redo
 db_data/binlog.******
+db_data/
+
+!.gitignore
+!db_data/optional_producttbl.ibd
+!db_data/represent_producttbl.ibd
+!db_data/membertbl.ibd

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    $con = mysqli_connect("db:3306", "root", "example", "XsportsShoppingMalldb") or die("MySQL 접속 실패");
+    $con = new mysqli("db:3306", "cookUser", "1234", "XsportsShoppingMalldb") or die("MySQL 접속 실패");
 
     $default_zip_code = $_POST["default_zip_code"];
     $default_adress = $_POST["default_address"];
@@ -18,20 +18,9 @@
     $sql .= " VALUES ('$default_zip_code', '$default_adress', '$email', '$gender', '$ID', '$name', '$nickname', '$password', '$phone_number', '$resident_registration_number', '$term_of_service_agreement')";
     
     $ret = mysqli_query($con , $sql);
-
-    echo "<H1> 신규 회원 입력 결과 </H1>";
-    if($ret) {
-        echo "데이터가 성공적으로 입력됨.";
-    }
-    else {
-        echo "데이터 입력 실패!!!"."<br>";
-        echo "실패 원인 :".mysqli_error($con);
-    }
-    mysqli_close($con);
-
-    echo "<br> <a href='main.html'> <--초기화면</a>";
+    $con->close();
 ?>
-<html>  
+<html>    
 <head>
   <meta charset="UTF-8">
 </head>
@@ -192,7 +181,7 @@
        
         <h4>회원가입이 완료되었습니다!</h4>
         <p>모든 회원가입 절차가 완료되었습니다.<br>로그인 후 다양한 혜택과 서비스를 이용하실 수 있습니다.</p>
-        <button>메인으로</button>
+        <a href="login.html"><button type="button">로그인으로</button></a>
       </section>
     </div>
   </article>
