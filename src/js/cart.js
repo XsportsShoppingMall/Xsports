@@ -13,11 +13,11 @@ async function load_carts(){
     var it = 0;
     itemContainer.innerHTML = `
       <li>
-        <div class="checkbox">
+      <!--<div class="checkbox">
             <input type="checkbox" name="all_chk" id="all_chk">
             <label for="all_chk">전체선택</label>
         </div>
-        <div class="del_btn">삭제 (<span class="num">0</span>)</div>
+        <div class="del_btn">삭제 (<span class="num">0</span>)</div>-->
       </li>
       `;
 
@@ -34,7 +34,7 @@ async function load_carts(){
       // productCard.classList.add('checkbox');
       item_list.innerHTML = `
         <div class="checkbox">
-          <input type="checkbox" name="item_chk" class="item_chk0${vari}">
+          <!--<input type="checkbox" name="item_chk" class="item_chk0${vari}">-->
           <label for="item_chk0${vari}"></label>
         </div>
         
@@ -73,6 +73,100 @@ async function load_carts(){
         })
         .then(load_carts());
       });
+
+      item_list.querySelector(".plus_btn").addEventListener('click',function(){
+        const item_quantity = parseInt(item.product_quantity)+1;
+        const url = `php/delete_item.php?memberID=${item.memberID}&product_no=${item.product_no}&product_index=${item.product_index}`
+        fetch(url)
+        .then(response=>{
+          console.log(response);
+        })
+        .then(()=>{fetch('php/get_user_id.php')
+        .then(response => response.text())
+        .then(memberID => {
+          // const productQuantity = parseInt(inputNumber.value);
+          const data = {
+            memberID: memberID,
+            product_no: item.product_no,
+            product_index: item.product_index,
+            product_quantity: item_quantity //productQuantity
+          };
+  
+          // 서버로 데이터 전송하여 장바구니에 상품 추가
+          fetch('php/add_to_cart.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+            .then(response => response.json())
+            .then(result => {
+              // 성공적으로 장바구니에 추가되었을 때의 처리 로직
+              console.log('상품이 장바구니에 추가되었습니다.');
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          }).then(load_carts());
+        });
+      });
+
+      item_list.querySelector(".minus_btn").addEventListener('click',function(){
+        const item_quantity = parseInt(item.product_quantity)-1;
+        if(item_quantity <= 0){
+          alert("상품 갯수는 1개 이하로 내려갈 수 없습니다.")
+        }else{
+        const url = `php/delete_item.php?memberID=${item.memberID}&product_no=${item.product_no}&product_index=${item.product_index}`
+        fetch(url)
+        .then(response=>{
+          console.log(response);
+        })
+        .then(()=>{fetch('php/get_user_id.php')
+        .then(response => response.text())
+        .then(memberID => {
+          // const productQuantity = parseInt(inputNumber.value);
+          const data = {
+            memberID: memberID,
+            product_no: item.product_no,
+            product_index: item.product_index,
+            product_quantity: item_quantity //productQuantity
+          };
+  
+          // 서버로 데이터 전송하여 장바구니에 상품 추가
+          fetch('php/add_to_cart.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          })
+            .then(response => response.json())
+            .then(result => {
+              // 성공적으로 장바구니에 추가되었을 때의 처리 로직
+              console.log('상품이 장바구니에 추가되었습니다.');
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          }).then(load_carts());
+        });
+      }
+      });
+
+
+
+
+
+
+
+
       
       });
     })

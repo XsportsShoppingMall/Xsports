@@ -13,6 +13,10 @@
     }
 
 async function getProductList(category, search, sort, page) {
+  if( currentHref != "http://localhost:8080/src/index.html"){
+    window.location.href = "index.html"
+  }
+
 
     const url = `php/get_represent_products.php?category=${category}&search=${search}&sort=${sort}&page=${page}`;
     await fetch(url)

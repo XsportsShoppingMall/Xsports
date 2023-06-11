@@ -7,7 +7,7 @@ padding: 2px 5px 2px 25px}
 .cart_table .cart_list li{border-bottom: 1px solid #ccc;padding: 15px 0; position: relative}
 .cart_table .cart_list li>div.item_detail p{display: inline-block; font-size: 16px; width: 60%}
 .cart_table .cart_list li>div.item_detail .txt{margin-top: 1rem}
-.cart_table .cart_list li>div.opt_info{position: absolute; right: 0; top: 34%; max-width: 39%; width: 300px; }
+.cart_table .cart_list li>div.opt_info{position: absolute; right: 0; top: 34%; max-width: 39%; width: 400px; }
 .cart_table .cart_list li>div.opt_info .price_btn input {font-size: 0; margin-left: -1px; cursor: pointer; color: #ccc; width: 30px; height: 30px; border: 0; outline: 0; display: inline-block;
     text-align: center; vertical-align: top;background-size: cover !important;}
 .cart_table .cart_list li>div.opt_info .price_btn input.minus_btn{background: url(https://tictoc-web.s3.ap-northeast-2.amazonaws.com/web/img/icon/btn_minus.svg) no-repeat center;}
