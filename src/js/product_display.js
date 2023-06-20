@@ -72,8 +72,59 @@ async function getProductList(category, search, sort, page) {
           });
   
           checkLoginStatus('favorite', favoriteButton);
+
+          let isfavorite = false;
+          fetch("php/get_user_id.php")
+          .then(response => response.text())
+          .then(member_id =>{
+            fetch(`php/get_favorite.php?member_id=${member_id}`)
+            .then(response => response.json())
+            .then(items =>{
+              items.forEach(item =>{
+                if (item.product_no == product.product_no){
+                  isfavorite = true;
+                  if(isfavorite){
+                    favoriteButton.classList.toggle('btn-outline-danger');
+                  }
+                } 
+              });
+            });
+          });
           
+
           favoriteButton.addEventListener('click', () => {
+            getProductInfo(product.product_no)
+            .then(product => {
+              let isfavorite = false;
+              fetch("php/get_user_id.php")
+              .then(response => response.text())
+              .then(member_id =>{
+                fetch(`php/get_favorite.php?member_id=${member_id}`)
+                .then(response => response.json())
+                .then(items =>{
+                  items.forEach(item =>{
+                    console.log(item.product_no);
+                    console.log(product.product_no);
+                    
+                    if (item.product_no == product.product_no){
+                      console.log('exist');
+                      isfavorite = true;
+                    } 
+                  });
+                })
+                .then(()=>{
+                  console.log(isfavorite);
+                  if(isfavorite){
+                    delete_favorite(product);
+                  }else{
+                    add_favorite(product);
+                  }
+                });
+                
+              })
+              
+              
+            });
             favoriteButton.classList.toggle('btn-outline-danger');
           });
         });

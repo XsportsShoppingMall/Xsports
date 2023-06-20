@@ -64,7 +64,8 @@ function handleLoginStatus(isLoggedIn,object,button) {
                 // 로그인 상태인 경우
                 // 서버로부터 favorite 정보 불러오기
                 // 불러온 정보 확인 후 favorite 표시
-
+                
+                
                 // 버튼 토글 기능
                     
     

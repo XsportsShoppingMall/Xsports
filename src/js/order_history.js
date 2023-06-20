@@ -56,7 +56,7 @@ $("#more-button1").click(()=>{
                                                 </ol>
                                             </div>
                                             <div class="right d-inline">
-                                            <p>${parseInt(item.unit_price)*parseInt(item.product_quantity)} 원</p>
+                                                <p>${""+(parseInt(item.unit_price)*parseInt(item.product_quantity)).toLocaleString()} 원</p>
                                             </div>
                                         </div>
                                     </li>
@@ -143,7 +143,7 @@ $("#more-button1").click(()=>{
                                 </ol>
                             </div>
                             <div class="right d-inline">
-                            <p>${parseInt(item.unit_price)*parseInt(item.product_quantity)} 원</p>
+                            <p>${""+(parseInt(item.unit_price)*parseInt(item.product_quantity)).toLocaleString()} 원</p>
                             </div>
                         </div>
                     </li>

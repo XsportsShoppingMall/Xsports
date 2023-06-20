@@ -1,3 +1,6 @@
+const cartModal = document.querySelector('#cartModal');
+
+
 function getProductInfo(productID) {
     return fetch(`php/get_modal_product.php?productID=${productID}`)
     .then(response => response.json())
@@ -30,6 +33,7 @@ var productNo;
 
 //옵션조절
 const colorOption = cartModal.querySelector('#colorOption');
+console.log(colorOption);
 const sizeOption = cartModal.querySelector('#sizeOption');
 const other_optionOption = cartModal.querySelector('#other_optionOption');
 
